@@ -1,0 +1,5 @@
+sudo apt-get install libusb-dev libusb++-0.1-4c2 libccid pcscd libpcsclite1 libpcsclite-dev pcsc-tools
+
+# hotfix for java8 64bit linking error...
+sudo mkdir /usr/lib64
+sudo ln -s /lib/x86_64-linux-gnu/libpcsclite.so.1 /usr/lib64/libpcsclite.so

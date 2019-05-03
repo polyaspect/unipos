@@ -1,0 +1,20 @@
+
+<div class="product-panel-settings flex-row-fill flex-column-fill">
+    <div class="flex-row-fill flex-column-fill layout-row layout-wrap"
+         ng-show="childOptions.showTypes">
+        <div class="flex-25 flex-column-fill card-parent" ng-repeat="type in types">
+            <div class="card layout-column">
+                <div class="card-image flex-75">
+                    <h3>{{type.name}}</h3>
+                </div>
+                <div class="card-content layout-row flex-25">
+                    <span class="flex"></span>
+                    <button class="btn btn-info" ng-click="selectType(type)">Auswählen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-row-fill flex-column-fill layout-row layout-wrap directive-tabs"
+         ng-hide="childOptions.showTypes">
+    </div>
+</div>

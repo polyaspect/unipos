@@ -1,0 +1,14 @@
+<div class="jk-panel">
+    <md-button class="md-raised md-primary prev" ng-show="jkPanelData.length > 1" aria-label="prev">
+        <i class="fa fa-arrow-left"></i>
+    </md-button>
+    <div class="jk-panel-slide" ng-repeat="slide in jkPanelData | orderBy: '$index':reverse"
+         ng-show="$index == shownSlide">
+        <md-button class="md-raised jk-panel-item" ng-repeat="item in slide" ng-style="item.css">
+            {{item.name}}
+        </md-button>
+    </div>
+    <md-button class="md-raised md-primary next" ng-show="jkPanelData.length > 1" aria-label="next">
+        <i class="fa fa-arrow-right"></i>
+    </md-button>
+</div>

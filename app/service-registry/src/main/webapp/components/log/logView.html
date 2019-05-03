@@ -1,0 +1,37 @@
+<div class="mainCardHeader">
+    <style>
+        .json-formatter-row a > span.value > span {
+            white-space: pre-line;
+        }
+    </style>
+    <script type="text/ng-template" id="logRowContorller.tmpl.html">
+        <div class="modal-header">
+            <h2 class="modal-title">Log</h2>
+        </div>
+        <div class="modal-body form-horizontal">
+            <json-formatter json='log' open='1'></json-formatter>
+        </div>
+        <div class="modal-body form-horizontal">
+        </div>
+    </script>
+    <div class="layout-row">
+        <div class="flex-100">
+            <h1>Alle Logs</h1>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent" id="mainCardContent" style="overflow: auto">
+    <input type="date" ng-model="options.startDate" ng-change="loadMore(true)">
+    <input type="date" ng-model="options.endDate" ng-change="loadMore(true)">
+    <ul class="list-group" infinite-scroll='loadMore(false)' infinite-scroll-distance='1'
+        infinite-scroll-container="'#mainCardContent'">
+        <li class="list-group-item" ng-repeat="log in data | orderBy:'-dateTime'" ng-click="showLog($event, log)"
+            style="padding-top: 1px; padding-bottom: 1px;"
+            ng-style="log.level == 'ERROR' && {'background-color': '#FF7043'} || log.level == 'WARNING' && {'background-color':'#FFD54F'} || log.level == 'CRITICAL' && {'background-color':'#F44336'}  || log.level == 'INFO' && {'background-color':'#64B5F6'}">
+            {{ log.level }} |
+            {{ log.dateTime || log.receivedDateTime | date:'dd.MM.yyyy HH:mm:ss' }} |
+            {{ log.message }} |
+            {{ log.source}}
+        </li>
+    </ul>
+</div>

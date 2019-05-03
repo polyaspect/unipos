@@ -1,0 +1,176 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Drucker erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Drucker bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Drucker-Name:</label>
+                <div class="col-md-10">
+                    <input class="form-control"
+                           ng-model="model.name">
+                    <div class="help-block">Die Bezeichnung des Druckers, wie er umgangssprachlich genannt wird.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Drucker Model:</label>
+                <div class="col-md-10">
+                    <input class="form-control"
+                           ng-model="model.typeName">
+                    <div class="help-block">Die Typen-Bezeichnung des Druckers.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Anzahl Zeichen:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.charCount">
+                    <div class="help-block">Die Anzahl an Zeichen die der Drucker in einer Zeile druckt.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Standart Drucker:</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <checkbox ng-model="model.defaultPrinter"></checkbox>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Verbindung">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Type:</label>
+                <div class="col-md-10">
+                    <ui-select placeholder="Verwendung" ng-model="model.connectionType">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.value"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="type.key as type in printerTypes | filter: $select.search">
+                            {{type.value}}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">Die Drucker-Anschluss-Typ.</div>
+                </div>
+            </div>
+            <form ng-show="model.connectionType == 'NETWORK'">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">IP-Adresse:</label>
+                    <div class="col-md-10">
+                        <input class="form-control"
+                               pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+                               ng-model="model.ipAddress">
+                        <div class="help-block">Die IP-Adresse des Drucker (z.B.: 192.168.0.15).</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Port:</label>
+                    <div class="col-md-10">
+                        <input class="form-control"
+                               pattern="^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
+                               ng-model="model.port">
+                        <div class="help-block">Der Port des Drucker. Standard ist 9100.</div>
+                    </div>
+                </div>
+            </form>
+            <form ng-show="model.connectionType == 'SERIAL'">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Ser. Port-Name:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" value="/dev/ttyUSB0"
+                               ng-model="model.comPort">
+                        <div class="help-block">Der Name des Seriellen Ports (z.B.: "/dev/ttyUSB0" oder "COM3").</div>
+                    </div>
+                </div>
+            </form>
+            <form ng-show="model.connectionType == 'USB'">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Drucker Hersteller ID:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text"
+                               ng-model="model.vendorId">
+                        <div class="help-block">Die Hersteller ID des Druckers.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Drucker Produkt ID:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text"
+                               ng-model="model.productId">
+                        <div class="help-block">Die Hersteller ID des Druckers.</div>
+                    </div>
+                </div>
+            </form>
+        </uib-tab>
+        <uib-tab index="2" heading="Logo">
+            <div flow-init flow-name="obj.flow">
+                <div class="thumbnail" ng-hide="$flow.files.length">
+                    <img ng-src="{{'printer/images/'+model.printerId+'.bmp'}}"
+                         onerror="this.src='assets/images/no-image.png';return false;"/>
+                </div>
+                <div class="thumbnail" ng-show="$flow.files.length">
+                    <img flow-img="$flow.files[0]"/>
+                </div>
+                <div>
+                    <button class="btn" ng-hide="$flow.files.length"
+                            flow-btn flow-attrs="{accept:'image/*'}">
+                        Bild auswählen
+                    </button>
+                    <button class="btn" ng-show="$flow.files.length"
+                            flow-btn flow-attrs="{accept:'image/*'}">
+                        Ändern
+                    </button>
+                    <button class="btn btn-danger" ng-show="$flow.files.length"
+                            ng-click="$flow.cancel()">
+                        Entfernen
+                    </button>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="3" heading="Geltungsbereich">
+            <div style="margin-top: 2%">
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-info gl"
+                         ng-repeat="company in companies">
+                        <uib-accordion-heading>
+                            <checkbox class="btn-info" ng-model="company.checked"
+                                      ng-click="onCompanySelected(company, $event)"></checkbox>
+                            {{company.name}}
+                        </uib-accordion-heading>
+                        <label class="gl-cell gl-md-12" ng-repeat="store in company.stores">
+                            <checkbox class="btn-info" ng-model="store.checked"
+                                      ng-click="onStoreSelected(company, store)"></checkbox>
+                            {{store.name}}
+                        </label>
+                    </div>
+                </uib-accordion>
+            </div>
+        </uib-tab>
+        <uib-tab index="4" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher dass sie den Drucker löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-info" ng-click="testPrinting()">
+        Drucke Testseite
+    </button>
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Drucker speichern
+    </button>
+</div>

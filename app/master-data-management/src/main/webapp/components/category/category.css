@@ -1,0 +1,9 @@
+#category-outer-div .btn-big-div {
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+#category-outer-div > div {
+    padding-left: 0;
+    padding-right: 0;
+}

@@ -1,0 +1,99 @@
+.panel-directive {
+    display: flex !important;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 2px;
+    height: 100%;
+}
+
+.panel-directive > slick {
+    height: 100%;
+    margin: 0;
+    flex: 15;
+}
+
+.panel-directive.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: nowrap;
+}
+
+.panel-directive .flex-item {
+    border: solid #111111 thin;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    flex: 1;
+}
+
+.panel-directive slick .slick-list {
+    height: 100%;
+}
+
+.panel-directive slick .slick-track {
+    height: 100%;
+    display: flex;
+}
+
+.panel-directive .slide-item-div {
+    height: 90%;
+    flex: 1;
+}
+
+.panel-directive #slick-buttons {
+    display: none;
+}
+
+.panel-directive .scroll-button.prev {
+    padding-right: 0;
+}
+
+.panel-directive .slide {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.panel-directive .row {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+.panel-directive .cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.panel-directive .cell button {
+    flex: 1;
+    line-height: 1.2;
+}
+
+.panel-directive .slide > div:last-of-type .cell button {
+    margin-bottom: 4px;
+}
+
+.panel-directive .cell button span {
+    white-space: normal;
+}
+
+.panel-directive .jk-button {
+    height: inherit;
+}

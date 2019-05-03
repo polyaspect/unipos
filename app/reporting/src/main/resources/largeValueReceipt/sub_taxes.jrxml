@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-26T11:43:47 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_taxes" pageWidth="110" pageHeight="13" orientation="Landscape" columnWidth="110" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0038a5b5-c9cd-4310-a605-f9da89211ee4">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="taxRate" class="java.lang.Integer">
+		<fieldDescription><![CDATA[taxRate]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="amountTax" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[amountTax]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="13" isRemoveLineWhenBlank="true" uuid="507b154c-2f51-4e12-8c66-e48b94f923d3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem") ? $F{taxRate} + "% USt." : ""]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤;(#,##0.00) ¤">
+				<reportElement x="45" y="0" width="65" height="13" isRemoveLineWhenBlank="true" uuid="cd95b7e9-7ce0-4907-bb6f-58e67d55cc2f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem") ? $F{amountTax} : ""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

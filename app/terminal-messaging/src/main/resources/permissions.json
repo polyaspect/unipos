@@ -1,0 +1,17 @@
+[
+  {
+    "viewName": "Menü anzeigen",
+    "name": "socket.accessAllowed",
+    "partition": "Geräte"
+  },
+  {
+    "viewName": "Eingabegerät neu einrichten",
+    "name": "socket.removeDeviceToken",
+    "partition": "Geräte"
+  },
+  {
+    "viewName": "Eingabegeräte anzeigen",
+    "name": "socket.showDevices",
+    "partition": "Geräte"
+  }
+]

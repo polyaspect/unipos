@@ -1,0 +1,87 @@
+<div class="cash-book-button-settings flex-column-fill flex-row-fill">
+    <uib-tabset class="settings-tabset" active="activeTab">
+        <uib-tab index="0" heading="Allgemein">
+            <h2>Allgemein</h2>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Button Text:</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="model.buttonText">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Typ:</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-model="model.options.in" uib-btn-radio="true">In</label>
+                            <label class="btn btn-default" ng-model="model.options.in" uib-btn-radio="false">Out</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Typ:</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-model="model.options.private"
+                                   uib-btn-radio="true">Private</label>
+                            <label class="btn btn-default" ng-model="model.options.private" uib-btn-radio="false">Commercial</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <v-accordion class="vAccordion--default" multiple>
+                            <v-pane ng-repeat="step in model.options.steps">
+                                <v-pane-header>
+                                    Schritt {{$index + 1}}
+                                </v-pane-header>
+                                <v-pane-content>
+                                    <h3>{{step.name}}</h3>
+
+                                    <ui-select placeholder="Warengruppe" ng-model="step.screen" skip-focusser="true"
+                                               search-enabled="false">
+                                        <ui-select-match>
+                                            <span ng-bind="$select.selected.name"></span>
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="item.name as item in screens | filter: $select.search">
+                                            {{item.name}}
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <br/>
+                                    <button class="btn btn-danger" ng-click="deleteStep($index)"
+                                            aria-label="Delete">
+                                        Löschen
+                                    </button>
+                                </v-pane-content>
+                            </v-pane>
+                        </v-accordion>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2  col-sm-10">
+                        <div class="btn-group" uib-dropdown>
+                            <button type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Neuen Schritt hinzufügen
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                                <li ng-repeat="step in allSteps">
+                                    <a ng-click="addStep(step)">
+                                        {{step.name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Gestaltung">
+            <h2>Gestaltung der Tabelle</h2>
+            <pos.designer.designer-options.style-settings></pos.designer.designer-options.style-settings>
+        </uib-tab>
+    </uib-tabset>
+</div>

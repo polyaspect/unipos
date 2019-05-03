@@ -1,0 +1,12 @@
+[
+  {
+    "viewName": "Anzeigen",
+    "name": "core.accessAllowed",
+    "partition": "Administration"
+  },
+  {
+    "viewName": "Anzeigen",
+    "name": "core.showLogs",
+    "partition": "Logs"
+  }
+]

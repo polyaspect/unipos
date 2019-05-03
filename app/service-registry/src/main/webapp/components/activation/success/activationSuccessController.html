@@ -1,0 +1,44 @@
+<div class="core-activation-success flex-column-fill">
+    <div class="login-page" style="text-align:center">
+        <img src="../../assets/images/unipos_oem.png" height="225" style="margin-bottom:40px">
+        <div class="form">
+            <div class="login-form" ng-show="loading">
+                <h1>Aktivierung erfolgreich!</h1>
+                <h4>Wie möchten Sie fortfahren?</h4>
+                <input type="text" ng-model="productKey" placeholder="Produktschlüssel" required autofocus/>
+                <hr>
+                <div class="layout-row">
+                    <a class="btn btn-lg btn-success layout-column flex-40 flex-offset-5 action-button"
+                       ng-click="doUpdate()">
+                        <i class="fa fa-refresh flex-50"></i>
+                        <div class="flex-50">
+                            <span>Installation</span>
+                        </div>
+                    </a>
+                    <div class="flex-5"></div>
+                    <a class="btn btn-lg btn-warning layout-column flex-40 action-button"
+                       ng-click="continueWithoutUpdate()">
+                        <i class="fa fa-arrow-right flex-50"></i>
+                        <div class="flex-50">
+                            <span>Fortfahren</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div ng-hide="loading">
+                <h2>Software wird heruntergeladen...</h2>
+                <br/>
+                <div class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

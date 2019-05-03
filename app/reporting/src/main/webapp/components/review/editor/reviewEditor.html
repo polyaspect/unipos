@@ -1,0 +1,44 @@
+<div id="review-editor-outer-div">
+    <div class="modal-header">
+        <h3 class="modal-title">Rechnung anzeigen</h3>
+    </div>
+    <div class="modal-body form-horizontal">
+        <uib-tabset>
+            <uib-tab index="0" heading="Rechnung">
+                <div class="loader" ng-show="showLoading">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <pre ng-hide="showLoading">
+                    {{previewData}}
+                </pre>
+                <div class="layout-row" ng-hide="showLoading">
+                    <button class="btn btn-info" ng-click="reprintInvoice()">
+                        Rechnung erneut drucken
+                    </button>
+                    <span class="flex"></span>
+                    <button class="btn btn-danger" ng-click="revertInvoiceButton()"
+                            ng-hide="model.reverted"
+                            ng-disabled="model.invoiceType == 'reversalInvoice' ||model.signatureInvoiceType == 'NULL'|| model.signatureInvoiceType == 'START'|| model.signatureInvoiceType == 'SAMMEL'">
+                        Rechnung stornieren
+                    </button>
+                    <button class="btn btn-danger" ng-click="revertInvoiceButton()"
+                            ng-show="model.reverted">
+                        Stornierungsdruck erneut drucken
+                    </button>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+            Schließen
+        </button>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<md-dialog aria-label="Directives" class="screen-set-settings">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Oberflächen Einstellungen</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <md-icon md-font-icon="fa-times" class="fa" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content flex="" layout="row">
+        <md-tabs flex="" md-dynamic-height="false" md-border-bottom="">
+            <md-tab label="Style">
+                <md-content class="md-padding">
+                    <h2>Screen Style</h2>
+
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="css.screen.checked && {'background-color': '#D4CECE'}">
+                            <label>Parent Style</label>
+                            <md-checkbox ng-model="css.screen.checked" ng-true-value="false" aria-label="Checkbox"
+                                         ng-false-value="true"></md-checkbox>
+                            <textarea ng-model="css.screen.parentText" columns="1" rows="2" disabled></textarea>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="!css.screen.checked && {'background-color': '#D4CECE'} ">
+                            <label>Custom Style</label>
+                            <md-checkbox ng-model="css.screen.checked" ng-true-value="true" aria-label="Checkbox"
+                                         ng-false-value="false"></md-checkbox>
+                            <textarea ng-model="css.screen.customText" columns="1" rows="2"></textarea>
+                        </md-input-container>
+                    </div>
+
+<!--
+                    <h2>Button Style</h2>
+
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="css.button.checked && {'background-color': '#D4CECE'}">
+                            <label>Parent Style</label>
+                            <md-checkbox ng-model="css.button.checked" ng-true-value="false" aria-label="Checkbox"
+                                         ng-false-value="true"></md-checkbox>
+                            <textarea ng-model="css.button.parentText" columns="1" rows="2" disabled></textarea>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="!css.button.checked && {'background-color': '#D4CECE'} ">
+                            <label>Custom Style</label>
+                            <md-checkbox ng-model="css.button.checked" ng-true-value="true" aria-label="Checkbox"
+                                         ng-false-value="false"></md-checkbox>
+                            <textarea ng-model="css.button.customText" columns="1" rows="2"></textarea>
+                        </md-input-container>
+                    </div>
+
+                    <h2>Text Style</h2>
+
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="css.text.checked && {'background-color': '#D4CECE'}">
+                            <label>Parent Style</label>
+                            <md-checkbox ng-model="css.text.checked" ng-true-value="false" aria-label="Checkbox"
+                                         ng-false-value="true"></md-checkbox>
+                            <textarea ng-model="css.text.parentText" columns="1" rows="2" disabled></textarea>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="!css.text.checked && {'background-color': '#D4CECE'} ">
+                            <label>Custom Style</label>
+                            <md-checkbox ng-model="css.text.checked" ng-true-value="true" aria-label="Checkbox"
+                                         ng-false-value="false"></md-checkbox>
+                            <textarea ng-model="css.text.customText" columns="1" rows="2"></textarea>
+                        </md-input-container>
+                    </div>
+-->
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="hide()">
+            Abbrechen
+        </md-button>
+        <md-button ng-click="save()">
+            Speichern
+        </md-button>
+    </div>
+</md-dialog>

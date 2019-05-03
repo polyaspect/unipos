@@ -1,0 +1,154 @@
+[
+  {
+    "viewName": "Anlegen",
+    "name": "data.accessAllowed",
+    "partition": "Stammdaten"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showCompanies",
+    "partition": "Unternehmen"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createCompanies",
+    "partition": "Unternehmen"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updateCompanies",
+    "partition": "Unternehmen"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deleteCompanies",
+    "partition": "Unternehmen"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showStores",
+    "partition": "Filialen"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createStores",
+    "partition": "Filialen"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updateStores",
+    "partition": "Filialen"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deleteStores",
+    "partition": "Filialen"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showCategories",
+    "partition": "Warengruppen"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createCategories",
+    "partition": "Warengruppen"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updateCategories",
+    "partition": "Warengruppen"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deleteCategories",
+    "partition": "Warengruppen"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showProducts",
+    "partition": "Artikel"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createProducts",
+    "partition": "Artikel"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updateProducts",
+    "partition": "Artikel"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deleteProducts",
+    "partition": "Artikel"
+  },
+  {
+    "viewName": "Veröffentlichen",
+    "name": "data.publishProducts",
+    "partition": "Artikel"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showPaymentMethods",
+    "partition": "Zahlungsarten"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createPaymentMethods",
+    "partition": "Zahlungsarten"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updatePaymentMethods",
+    "partition": "Zahlungsarten"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deletePaymentMethods",
+    "partition": "Zahlungsarten"
+  },
+  {
+    "viewName": "Veröffentlichen",
+    "name": "data.publishPaymentMethods",
+    "partition": "Zahlungsarten"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showDiscounts",
+    "partition": "Rabatte"
+  },
+  {
+    "viewName": "Erstellen",
+    "name": "data.createDiscounts",
+    "partition": "Rabatte"
+  },
+  {
+    "viewName": "Bearbeiten",
+    "name": "data.updateDiscounts",
+    "partition": "Rabatte"
+  },
+  {
+    "viewName": "Löschen",
+    "name": "data.deleteDiscounts",
+    "partition": "Rabatte"
+  },
+  {
+    "viewName": "Veröffentlichen",
+    "name": "data.publishDiscounts",
+    "partition": "Rabatte"
+  },
+
+  {
+    "viewName": "Anzeigen",
+    "name": "data.showTaxRates",
+    "partition": "Steuersätze"
+  }
+]

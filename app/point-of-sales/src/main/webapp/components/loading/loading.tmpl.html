@@ -1,0 +1,20 @@
+<md-dialog aria-label="Loading Template" ng-cloak style="width:350px">
+    <form>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row" layout-align="center center" layout-padding>
+                    <h2 layout-align="center">Vorbereitung läuft...</h2>
+                </div>
+                <div layout="row" layout-align="center center" ng-repeat="task in pendingTasks" ng-show="task.pending">
+                    <div flex="33">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
+
+                    <div flex="66">
+                        {{task.message}}
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

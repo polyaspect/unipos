@@ -1,0 +1,19 @@
+{
+  "right": "report.accessAllowed",
+  "text": "Berichte",
+  "hyperlink": "/pos/#/pos",
+  "icon":"file-text",
+  "order":4,
+  "subItems":[
+    {
+      "right": "report.showReportGeneration",
+      "text": "Berichte erstellen",
+      "hyperlink": "/report/#/reportPreview"
+    },
+    {
+      "right": "report.showInvoices",
+      "text": "Rechnungen",
+      "hyperlink": "/report/#/journalReview"
+    }
+  ]
+}

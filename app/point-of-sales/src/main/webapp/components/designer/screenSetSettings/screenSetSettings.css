@@ -1,0 +1,29 @@
+.screen-set-settings {
+    width: 60%;
+    height: 75%;
+}
+
+.screen-set-settings md-dialog-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.screen-set-settings md-content {
+    flex-wrap: wrap;
+}
+
+.screen-set-settings md-card {
+    height: 30%;
+}
+
+.screen-set-settings md-card-title {
+    height: 125px;
+}
+
+.screen-set-settings md-tabs.functions md-input-container textarea {
+    height: 75px;
+}
+
+.screen-set-settings md-tabs.functions md-input-container label {
+    margin-left: 25px;
+}

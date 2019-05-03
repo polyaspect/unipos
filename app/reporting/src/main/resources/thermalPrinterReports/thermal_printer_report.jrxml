@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2016-01-11T17:52:33 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="204" pageHeight="841" whenNoDataType="AllSectionsNoDetail" columnWidth="204" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="6b087744-48ec-4f5b-afc7-c16d4515856c">
+	<property name="net.sf.jasperreports.export.text.page.width" value="48"/>
+	<property name="net.sf.jasperreports.export.text.page.height" value="12000"/>
+	<property name="net.sf.jasperreports.export.text.character.height" value="12"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="net.sf.jasperreports.text.measurer.factory.single.line" value="com.jaspersoft.jasperserver.api.engine.jasperreports.util.SingleLineTextMeasurerFactory"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ThermalPrinter Data Adapter"/>
+	<style name="Base" isDefault="true" hTextAlign="Left" vTextAlign="Middle" markup="styled" fontName="Courier New" fontSize="10" pdfFontName="Courier"/>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<field name="line" class="java.lang.String">
+		<fieldDescription><![CDATA[line]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50"/>
+	</title>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="204" height="12" uuid="4bf05bfb-354a-4b08-9833-63b72f741d9e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="104"/>
+	</summary>
+</jasperReport>

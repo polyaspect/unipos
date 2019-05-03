@@ -1,0 +1,28 @@
+<div class="cash-book-entry-grid-settings flex-column-fill flex-row-fill">
+    <uib-tabset class="settings-tabset" active="activeTab">
+        <uib-tab index="0" heading="Allgemein">
+            <h2>Allgemein</h2>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Grid ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="gridId">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mode:</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-model="options.modeAll" uib-btn-radio="true">Alle</label>
+                            <label class="btn btn-default" ng-model="options.modeAll" uib-btn-radio="false">Alle ab den letzten Tagesabschluss</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Gestaltung">
+            <h2>Gestaltung der Tabelle</h2>
+            <pos.designer.designer-options.style-settings></pos.designer.designer-options.style-settings>
+        </uib-tab>
+    </uib-tabset>
+</div>

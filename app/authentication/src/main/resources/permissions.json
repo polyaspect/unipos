@@ -1,0 +1,12 @@
+[
+  {
+    "viewName": "Anzeigen",
+    "name": "auth.accessAllowed",
+    "partition": "Authorisierung"
+  },
+  {
+    "viewName": "Anzeigen",
+    "name": "auth.showUsers",
+    "partition": "Benutzer"
+  }
+]

@@ -1,0 +1,24 @@
+<div class="report-preview-grid-settings flex-column-fill flex-row-fill">
+    <uib-tabset class="settings-tabset" active="activeTab">
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-horizontal">
+                <h2>Allgemein</h2>
+                <div class="form-group">
+                    <div class="list-group">
+                        <a class="list-group-item layout-row" ng-repeat="item in roles"
+                           ng-click="selectSourceItem(item, $event)">
+                            {{item.text}}
+                            <span class="flex"></span>
+                            <checkbox ng-model="item.checked" class="checkbox"
+                                      ng-click="$event.stopPropagation()"></checkbox>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Gestaltung">
+            <h2>Gestaltung der Tabelle</h2>
+            <pos.designer.designer-options.style-settings></pos.designer.designer-options.style-settings>
+        </uib-tab>
+    </uib-tabset>
+</div>

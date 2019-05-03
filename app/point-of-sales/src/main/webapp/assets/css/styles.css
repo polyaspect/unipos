@@ -1,0 +1,35 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+md-progress-circular .md-inner .md-right .md-half-circle {
+    border-right-color: red;
+}
+md-progress-circular .md-inner .md-left .md-half-circle, md-progress-circular .md-inner .md-right .md-half-circle {
+    border-top-color: red;
+}
+md-progress-circular .md-inner .md-gap {
+    border-top-color: red;
+    border-bottom-color: red;
+}
+md-progress-circular .md-inner .md-left .md-half-circle {
+    border-left-color: red;
+}
+
+@font-face {
+    font-family: raleway;
+    src: url(../font/raleway/Raleway-Medium.ttf);
+}
+
+@font-face {
+    font-family: ralewayBlack;
+    src: url(../font/raleway/Raleway-SemiBold.ttf);
+}
+
+.align-right{
+    text-align: right;
+}
+
+.font-weight-bold{
+    font-weight:bold;
+}

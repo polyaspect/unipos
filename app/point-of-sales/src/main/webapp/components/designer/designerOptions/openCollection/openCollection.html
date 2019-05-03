@@ -1,0 +1,23 @@
+<div class="modal-header open-collection">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hide()"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">ScreenCollection öffnen</h4>
+</div>
+<div class="modal-body open-collection layout-row">
+    <div class="flex-30 card-parent" ng-repeat="screenCollection in screenCollections">
+        <div class="card">
+            <div class="card-image">
+                <img class="img-responsive"
+                     src="http://core0.staticworld.net/images/article/2014/04/windows-xp-bliss-start-screen-100259803-orig.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{screenCollection}}</span>
+                <button type="button" class="btn btn-primary pull-right" aria-label="Öffnen"
+                        ng-click="open(screenCollection)">
+                    Öffnen
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer open-collection"></div>

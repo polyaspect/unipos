@@ -1,0 +1,14 @@
+{
+  "right": "auth.accessAllowed",
+  "text": "Benutzer",
+  "hyperlink": "maintain",
+  "icon":"users",
+  "order":3,
+  "subItems":[
+    {
+      "right": "auth.showUsers",
+      "text": "Benutzer",
+      "hyperlink": "/auth/#/users"
+    }
+  ]
+}

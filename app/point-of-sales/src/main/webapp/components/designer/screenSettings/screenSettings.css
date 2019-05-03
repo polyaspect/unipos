@@ -1,0 +1,9 @@
+.screen-set-settings {
+    width: 60%;
+    height: 75%;
+}
+
+.screen-set-settings md-dialog-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}

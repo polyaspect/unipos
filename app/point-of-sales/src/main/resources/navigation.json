@@ -1,0 +1,19 @@
+{
+  "right": "pos.accessAllowed",
+  "text": "Kasse",
+  "hyperlink": "/pos/#/pos",
+  "icon":"money",
+  "order":1,
+  "subItems":[
+    {
+      "right": "pos.useCashRegister",
+      "text": "Starten",
+      "hyperlink": "/pos/#/pos"
+    },
+    {
+      "right": "pos.useDesigner",
+      "text": "Designer (ALPHA)",
+      "hyperlink": "/pos/#/designer"
+    }
+  ]
+}

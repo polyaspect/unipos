@@ -1,0 +1,14 @@
+{
+  "right": "core.accessAllowed",
+  "text": "Admin",
+  "hyperlink": "maintain",
+  "icon":"globe",
+  "order":0,
+  "subItems":[
+    {
+      "right": "core.showLogs",
+      "text": "Logs",
+      "hyperlink": "/#/logs/showLogs"
+    }
+  ]
+}

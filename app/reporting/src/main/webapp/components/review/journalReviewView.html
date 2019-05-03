@@ -1,0 +1,41 @@
+<div class="mainCardHeader">
+    <div class="layout-row layout-align-center-center">
+        <div class="flex-50">
+            <h1>Rechnungen</h1>
+        </div>
+        <div class="flex-offset-10 flex-40" style="display:inherit">
+            <h3 >Unternehmen: </h3>
+            <ui-select ng-change="selectionChanged()" placeholder="Unternehmen"
+                       ng-model="$parent.selectedCompany" style="margin-left:8px;margin-top:16px; width:100%"
+                       search-enabled="false"
+                       onclick="setTimeout(function(){document.activeElement.blur();},50)"
+                       skip-focusser="true">
+                <ui-select-match>
+                    <span ng-bind="$select.selected.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="company.guid as company in companies | filter: $select.search">
+                    {{company.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+    </div>
+</div>
+<div class="mainCardFooter layout-column">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-100">
+            <div class="layout-row">
+                <div class="flex-100 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="makeEditorVisible()" ng-disabled="buttonDisabled">
+                        Rechnung anzeigen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

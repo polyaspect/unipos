@@ -1,0 +1,509 @@
+[
+  {
+    "data": [
+      {
+        "name": "asdf",
+        "uuid": "5a9450fb-c805-4397-8b93-a0a0ac2fee4e",
+        "device": "widescreen",
+        "data": [
+          {
+            "name": "asdf",
+            "type": "asdf",
+            "data": [
+              {
+                "name": "pos.product-directive",
+                "posX": 0,
+                "posY": 0,
+                "width": 70,
+                "height": 50,
+                "outerCss": {
+                  "padding": "5px"
+                },
+                "innerCss": {},
+                "data": {
+                  "class": "unipos.design.components.area.model.areaData.slider.AreaDataSlider",
+                  "id": "productSlider",
+                  "scrollButton": {
+                    "prev": {},
+                    "next": {}
+                  },
+                  "sliderDataWrapper": {
+                    "columns": 2,
+                    "rows": 2,
+                    "data": [
+                      {
+                        "id": "5637dbcf4eecd5eec7c8882d",
+                        "name": "Joyce Laptop",
+                        "serviceName": "pos.productService",
+                        "serviceData": {
+                          "categoryId": "5637db3b4eecd5eec7c8881f"
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #FF8A65)"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataProducts"
+                      },
+                      {
+                        "id": "5637dc114eecd5eec7c88831",
+                        "name": "Dominik Laptop",
+                        "serviceName": "pos.productService",
+                        "serviceData": {
+                          "categoryId": "5637db3b4eecd5eec7c8881f"
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #FF8A65)"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataProducts"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "pos.functions-directive",
+                "posX": 0,
+                "posY": 50,
+                "width": 70,
+                "height": 50,
+                "outerCss": {
+                  "padding": "5px"
+                },
+                "innerCss": {},
+                "data": {
+                  "class": "unipos.design.components.area.model.areaData.slider.AreaDataSlider",
+                  "id": "functions1",
+                  "scrollButton": {
+                    "prev": {},
+                    "next": {}
+                  },
+                  "sliderDataWrapper": {
+                    "columns": 3,
+                    "rows": 2,
+                    "data": []
+                  }
+                }
+              },
+              {
+                "name": "pos.info-text-directive",
+                "posX": 70,
+                "posY": 0,
+                "width": 30,
+                "height": 10,
+                "outerCss": {
+                  "padding": "5px"
+                },
+                "innerCss": {
+                  "background-color": "black"
+                },
+                "data": {
+                  "modes": [
+                    {
+                      "name": "numpad"
+                    }
+                  ],
+                  "css": {
+                    "padding": "5px",
+                    "color": "green",
+                    "font-size": "2em"
+                  }
+                }
+              },
+              {
+                "name": "pos.order-directive",
+                "posX": 70,
+                "posY": 10,
+                "width": 30,
+                "height": 30,
+                "outerCss": {
+                  "padding": "5px"
+                },
+                "innerCss": {},
+                "data": {
+                  "id": "orderItemGrid",
+                  "areaName": "default"
+                }
+              },
+              {
+                "name": "pos.payment-directive",
+                "posX": 70,
+                "posY": 40,
+                "width": 30,
+                "height": 10,
+                "outerCss": {},
+                "innerCss": {},
+                "data": {
+                  "scrollButton": {
+                    "prev": {},
+                    "next": {}
+                  },
+                  "sliderDataWrapper": {
+                    "columns": 2,
+                    "rows": 1,
+                    "data": [
+                      {
+                        "_id": "563128488338713e7af5471a",
+                        "name": "Visa",
+                        "css": {},
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataPaymentItem"
+                      },
+                      {
+                        "_id": "563128488338713e7af5471b",
+                        "name": "Bankomatkarte",
+                        "css": {},
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataPaymentItem"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "name": "pos.jk-numpad",
+                "posX": 70,
+                "posY": 50,
+                "width": 30,
+                "height": 50,
+                "outerCss": {
+                  "padding": "5px"
+                },
+                "innerCss": {},
+                "data": {
+                  "class": "unipos.design.components.area.model.areaData.slider.AreaDataSlider",
+                  "id": "jkNumpad",
+                  "scrollButton": {
+                    "prev": {},
+                    "next": {}
+                  },
+                  "sliderDataWrapper": {
+                    "columns": 3,
+                    "rows": 5,
+                    "data": [
+                      {
+                        "name": "7",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "8",
+                        "serviceAction": "doAction",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "9",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "4",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "5",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "6",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "1",
+                        "serviceAction": "doAction",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "2",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "3",
+                        "serviceAction": "doAction",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "0",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "00",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": ",",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "AC",
+                        "serviceAction": "doAction",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "C",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      },
+                      {
+                        "name": "OK",
+                        "serviceName": "pos.jkNumpadService",
+                        "serviceAction": "doAction",
+                        "serviceData": {
+                          "modes": [
+                            {
+                              "name": "numpad"
+                            }
+                          ]
+                        },
+                        "css": {
+                          "button": {
+                            "background": "radial-gradient(white, #BDBDBD)"
+                          },
+                          "text": {
+                            "font-size": "3em"
+                          }
+                        },
+                        "class": "unipos.design.components.area.model.areaData.slider.data.SliderDataNumpad"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

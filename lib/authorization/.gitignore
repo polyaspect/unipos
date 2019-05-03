@@ -1,0 +1,8 @@
+target/
+atlassian-ide-plugin.xml
+authChecker.iml
+.idea/
+.idea/workspace.xml
+auth-checker.iml
+classes/
+/unipos-authChecker.iml

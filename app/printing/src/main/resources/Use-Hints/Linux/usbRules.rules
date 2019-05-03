@@ -1,0 +1,4 @@
+# Copy this file into /etc/udev/rules.d/ --> It makes that you have the appropriate rights
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0fe6", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="0fe6", MODE="0666"

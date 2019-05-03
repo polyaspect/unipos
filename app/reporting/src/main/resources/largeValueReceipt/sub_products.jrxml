@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-26T12:17:28 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_products" pageWidth="480" pageHeight="69" columnWidth="480" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="e924e216-dd90-407a-8c59-695ea0ee6b1d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantity]]></fieldDescription>
+	</field>
+	<field name="label" class="java.lang.String">
+		<fieldDescription><![CDATA[label]]></fieldDescription>
+	</field>
+	<field name="turnoverNet" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverNet]]></fieldDescription>
+	</field>
+	<field name="taxRate" class="java.lang.Integer">
+		<fieldDescription><![CDATA[taxRate]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[discount]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="reason" class="java.lang.String">
+		<fieldDescription><![CDATA[reason]]></fieldDescription>
+	</field>
+	<field name="reversalAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[reversalAmount]]></fieldDescription>
+	</field>
+	<field name="price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[price]]></fieldDescription>
+	</field>
+	<field name="tax" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tax]]></fieldDescription>
+	</field>
+	<field name="reversalApplied" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[reversalApplied]]></fieldDescription>
+	</field>
+	<field name="discounts" class="java.util.List">
+		<fieldDescription><![CDATA[discounts]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="15" uuid="b300a7f4-fc20-4566-8d77-effcef2853a5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Menge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="230" height="15" uuid="98e22c33-b276-47f4-856a-cf045e61c36e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beschreibung]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="65" height="15" uuid="654c796e-d39a-48e8-8ebc-9a2ae85f8c9c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Einzelpreis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="15" width="65" height="12" uuid="c37efe9b-2a4d-4bc6-ad04-d272f26f91e4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Netto)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="0" width="65" height="15" uuid="8861c16c-d630-4e6b-a0be-0389ee692514">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gesamtpreis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="15" width="65" height="12" uuid="3f412dfa-b1fc-4f77-8c0a-48d8f2116535">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Netto)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="40" height="15" uuid="ecbe7430-42f0-4a3d-abbf-d4b6dc81eb4d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USt.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="28" width="480" height="1" uuid="4af43a9a-b45f-47dc-af3b-cb2e96649f02">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" x="0" y="5" width="80" height="15" isRemoveLineWhenBlank="true" uuid="b4314e06-4754-41cc-8074-5b2511377cc1">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied} ? $F{quantity} + " Stk." : null]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" x="80" y="5" width="230" height="15" isRemoveLineWhenBlank="true" uuid="98edf0ad-33c0-4843-ac70-f94e2fa62062">
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied} ? $F{label} : 
+$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") ? $F{label}  : 
+$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") ? $F{label} : 
+null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤;-#,##0.00 ¤" isBlankWhenNull="true">
+				<reportElement key="" x="310" y="5" width="65" height="15" isRemoveLineWhenBlank="true" uuid="6229b643-1277-4d70-a1a0-b3c058db98a8">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied} ? $F{price}.subtract( $F{tax}).divide(new BigDecimal($F{quantity})).setScale(2,BigDecimal.ROUND_HALF_UP) : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 ¤;-#,##0.00 ¤" isBlankWhenNull="true">
+				<reportElement key="" x="375" y="5" width="65" height="15" isRemoveLineWhenBlank="true" uuid="27a6b372-f594-4093-9802-571eaa116666">
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied} ? $F{price}.subtract($F{tax}) : 
+$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") ? $F{discount}.multiply(new BigDecimal("-1")) : 
+$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") ? $F{discount}.multiply(new BigDecimal("-1")) : 
+null]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="" x="440" y="5" width="40" height="15" isRemoveLineWhenBlank="true" uuid="522ba9cb-687e-4c8e-ba52-53c2a6ccb9c3">
+					<printWhenExpression><![CDATA[!$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("OrderItemDiscountInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("ReversalInvoiceItem") &&
+!$F{class}.getSimpleName().equalsIgnoreCase("TaxInvoiceItem")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied} ? $F{taxRate} + "%" : null]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="80" y="20" width="360" height="15" isRemoveLineWhenBlank="true" uuid="d1ef80d5-d6b1-43ec-8c4a-256efa02dac4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("ProductInvoiceItem") && !$F{reversalApplied}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{discounts})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_discounts.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<line>
+				<reportElement x="0" y="3" width="480" height="1" uuid="f8183486-8bed-4f5a-8ae5-7e33604b1cce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,43 @@
+<div class="modal-header collection-settings">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hide()"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">ScreenCollection Einstellungen</h4>
+</div>
+<div class="modal-body collection-settings">
+    <uib-tabset>
+        <uib-tab index="0" heading="Unternehmen">
+            <br/>
+            <uib-accordion>
+                <div uib-accordion-group class="panel-info gl"
+                     ng-repeat="company in companies">
+                    <uib-accordion-heading>
+                        <div ng-click="onCompanySelected(company, $event)"></div>
+                        {{company.name}}
+                    </uib-accordion-heading>
+                    <label class="gl-cell gl-md-12 auth-user-editor partition-checkbox"
+                           ng-repeat="store in company.stores">
+                        <checkbox class="btn-info" ng-model="store.checked"
+                                  ng-click="onStoreSelected(company, store)"></checkbox>
+                        {{store.name}}
+                    </label>
+                </div>
+            </uib-accordion>
+        </uib-tab>
+        <uib-tab index="1" heading="Allgemein">
+            <br/>
+            <h2>Allgemein</h2>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Default:</label>
+                    <div class="col-sm-10">
+                        <checkbox ng-model="options.default">
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer collection-settings">
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Abbrechen</button>
+    <button class="btn btn-primary" type="button" ng-click="save()">Speichern</button>
+</div>

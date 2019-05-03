@@ -1,0 +1,11 @@
+.jk-numpad {
+    height: 100%;
+}
+
+.jk-numpad button > span {
+    vertical-align: middle;
+}
+
+.jk-numpad button.md-button {
+    min-width: 0;
+}

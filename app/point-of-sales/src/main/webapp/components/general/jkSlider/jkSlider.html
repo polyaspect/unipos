@@ -1,0 +1,32 @@
+<div class="jk-slider flex-container">
+    <div id="slick-buttons"></div>
+    <md-button class="scroll-button prev flex-item md-raised md-primary"
+               show-prev-or-next-slides-directive="" show-prev-or-next="prev"
+               slick-button-root="{{jkSliderData.scrollButtons.prevOrNextButtonRoot}}"
+               next-button="{{jkSliderData.scrollButtons.nextButton}}"
+               prev-button="{{jkSliderData.scrollButtons.prevButton}}"
+               slick-prev-button="{{jkSliderData.scrollButtons.slickPrevButton}}"
+               slick-next-button="{{jkSliderData.scrollButtons.slickNextButton}}"
+               ng-style="jkSliderData.scrollButtons.prev.css" ng-show="showPrevAndNextButton"
+               aria-label="left">
+        <i class="fa fa-arrow-left"></i>
+    </md-button>
+    <slick infinite="false" append-arrows="{{jkSliderData.slider.appendArrows}}">
+        <div ng-repeat="slide in jkSliderData.result" class="slide">
+            <div ng-repeat="row in slide" class="row">
+                <pos.ui.elements.button.button-directive cell="{{cell}}" ng-repeat="cell in row track by $index"></pos.ui.elements.button.button-directive>
+            </div>
+    </slick>
+    <md-button class="scroll-button next flex-item md-raised md-primary"
+               show-prev-or-next-slides-directive="" show-prev-or-next="next"
+               ng-style="jkSliderData.scrollButtons.next.css"
+               slick-button-root="{{jkSliderData.scrollButtons.prevOrNextButtonRoot}}"
+               next-button="{{jkSliderData.scrollButtons.nextButton}}"
+               prev-button="{{jkSliderData.scrollButtons.prevButton}}"
+               slick-prev-button="{{jkSliderData.scrollButtons.slickPrevButton}}"
+               slick-next-button="{{jkSliderData.scrollButtons.slickNextButton}}"
+               ng-show="showPrevAndNextButton"
+               aria-label="right">
+        <i class="fa fa-arrow-right"></i>
+    </md-button>
+</div>

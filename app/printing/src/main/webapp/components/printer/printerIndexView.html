@@ -1,0 +1,44 @@
+<div class="layout-row flex-row-fill flex-column-fill" id="printer-outer-div">
+    <div class="flex-xl-50 flex-lg-50 flex-md-60 flex-sm-80 flex-xs-100 flex-offset-xl-25 flex-offset-lg-25 flex-offset-md-20 flex-offset-sm-10 flex-offset-xs-0 flex-column-fill">
+        <div class="layout-column flex-column-fill">
+            <div class="flex-10">
+                <div class="layout-row">
+                    <div class="flex-100">
+                        <h1>Alle Drucker</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-80">
+                <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+                     ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+                </div>
+            </div>
+            <div class="flex-10 layout-column">
+                <div class="layout-row layout-align-center-center flex-100">
+                    <div class="flex-100">
+                        <div class="layout-row">
+                            <div class="flex-35 btn-big-div">
+                                <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                                        ng-click="showCreateDialog(true)">
+                                    Drucker erstellen
+                                </button>
+                            </div>
+                            <div class="flex-35 btn-big-div">
+                                <button type="button" class="btn btn-danger btn-lg flex-row-fill"
+                                        ng-disabled="buttonDisabled"
+                                        ng-click="openSelectedModal()">Drucker Öffnen
+                                </button>
+                            </div>
+                            <div class="flex-30 btn-big-div">
+                                <button type="button" class="btn btn-success btn-lg flex-row-fill"
+                                        ng-click="duplicateSelectedRow()">
+                                    Drucker kopieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

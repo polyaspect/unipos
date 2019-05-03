@@ -1,0 +1,19 @@
+{
+  "right": "socket.accessAllowed",
+  "text": "Netzwerk",
+  "hyperlink": "/pos/#/pos",
+  "icon":"server",
+  "order":5,
+  "subItems":[
+    {
+      "right": "socket.removeDeviceToken",
+      "text": "Eingabegerät neu einrichten",
+      "hyperlink": "/socket/#/removeDeviceToken"
+    },
+    {
+      "right": "socket.showDevices",
+      "text": "Eingabegeräte anzeigen",
+      "hyperlink": "/socket/#/devices"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<div class="modal-header collection-settings">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hide()"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Screen Einstellungen</h4>
+</div>
+<div class="modal-body collection-settings">
+    <uib-tabset>
+        <uib-tab index="0" heading="Funktion">
+            <br/>
+            <div class="layout-row layout-align-center-center">
+                <div ng-repeat="function in functions" class="flex-25 layout-row">
+                    <span class="flex"></span>
+                    <button class="btn btn-primary flex" ng-click="selectFunction(function)" ng-if="selectedFunction == function">
+                        <i class="fa fa-3x {{function.icon}}"></i>
+                        <br/>
+                        {{function.text}}
+                    </button>
+                    <button class="btn btn-default flex" ng-click="selectFunction(function)" ng-if="selectedFunction != function">
+                        <i class="fa fa-3x {{function.icon}}"></i>
+                        <br/>
+                        {{function.text}}
+                    </button>
+                    <span class="flex"></span>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer collection-settings">
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Abbrechen</button>
+    <button class="btn btn-primary" type="button" ng-click="save()">Speichern</button>
+</div>

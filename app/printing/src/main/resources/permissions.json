@@ -1,0 +1,12 @@
+[
+  {
+    "viewName": "Menü anzeigen",
+    "name": "printer.accessAllowed",
+    "partition": "Drucker"
+  },
+  {
+    "viewName": "Gerät neu einrichten",
+    "name": "printer.configurePrinters",
+    "partition": "Drucker"
+  }
+]

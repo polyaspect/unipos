@@ -1,0 +1,23 @@
+<div class="layout-column flex-column-fill flex-row-fill style-settings">
+    <div ng-repeat="(key,cssItem) in css" class="layout-column flex-column-fill flex-row-fill">
+        <h2>{{cssItem.displayText}}</h2>
+        <div class="layout-row">
+            <!-- ToDo: Parent Styling: -->
+            <!--<div class="flex-50 custom-css-div" ng-style="cssItem.data.customChecked  == 'true' && {'background-color': '#D4CECE'}">
+                <checkbox ng-model="cssItem.data.customChecked" ng-true-value="false" ng-false-value="true"></checkbox>
+                <div class="form-group">
+                    <label class="control-label">Parent Style:</label>
+                    <textarea ng-model="cssItem.data.parentText" class="form-control" readonly></textarea>
+                </div>
+            </div>-->
+            <!-- ng-style="cssItem.data.customChecked  != 'true' && {'background-color': '#D4CECE'} " -->
+            <div class="flex-100 custom-css-div" >
+                <!-- <checkbox ng-model="cssItem.data.customChecked" ng-true-value="true" ng-false-value="false"></checkbox> -->
+                <div class="form-group">
+                    <label class="control-label">CSS Attribute setzen:</label>
+                    <textarea ng-model="cssItem.data.customText" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

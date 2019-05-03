@@ -1,0 +1,102 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Gerät erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Gerät bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-3 control-label">Geräte-Name:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.deviceName">
+                    <div class="help-block">Der Name des Gerätes.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Gerätenummer:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" readonly disabled
+                           ng-model="model.deviceNumber">
+                    <div class="help-block">Die laufende Gerätenummer.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">IP-Adresse:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" readonly disabled
+                           ng-model="model.ipAdress">
+                    <div class="help-block">Der aktuelle IP-Adresse der Gerätes.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Geräte-ID:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" readonly disabled
+                           ng-model="model.deviceId">
+                    <div class="help-block">Die ID des Gerätes.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Registriert am:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" readonly disabled
+                           ng-model="model.creationDate">
+                    <div class="help-block">Datum und Uhrzeit wann das Gerät angelegt wurde.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Drucker">
+            <div class="list-group" style="margin-top: 2%">
+                <div class="list-group-item layout-row" ng-repeat="printer in printers">
+                    <div class="flex-90">
+                        <h4>Name: {{ printer.name }}</h4>
+                        <h5>Drucker Model: {{ printer.typeName }}</h5>
+                        <p>Zeichen: {{ printer.charCount }}</p>
+                        <p ng-hide="printer.ipAddress == null">IP-Adresse: {{printer.ipAddress}}</p>
+                        <p ng-hide="printer.comPort == null">COM-Port: {{printer.comPort}}</p>
+                        <p ng-hide="printer.vendorId == null || printer.productId == null">VendorID:
+                            {{printer.vendorId}} - ProductID: {{printer.productId}}</p>
+                    </div>
+                    <div class="flex-10 layout-row layout-align-center-center">
+                        <checkbox ng-model="printer.checked" ng-click="onPrinterSelected(printer, $event)">
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Filiale">
+            <div class="list-group" style="margin-top: 2%">
+                <div class="list-group-item layout-row" ng-repeat="store in stores">
+                    <div class="flex-90">
+                        <h4>Name: {{ store.name }}</h4>
+                    </div>
+                    <div class="flex-10 layout-row layout-align-center-center">
+                        <checkbox ng-model="store.checked" ng-click="onStoreSelected(store, $event)">
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="3" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher dass sie das Gerät löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Gerät speichern
+    </button>
+</div>

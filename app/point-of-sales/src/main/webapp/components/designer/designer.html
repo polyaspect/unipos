@@ -1,0 +1,153 @@
+<div class="designer layout-row flex-column-fill">
+    <div class="flex-15 flex-column-fill screen-preview">
+        <h3>Oberflächen</h3>
+        <div class="flex-row-fill screens">
+            <div class="card-parent" ng-repeat="screen in screenCollection.screens" ng-click="selectScreen(screen)"
+                 ng-class="{'selected':screen == currentScreen}">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="img-responsive"
+                             src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+                    </div>
+
+                    <div class="card-content layout-row">
+                        <p class="flex-70">{{screen.name}}</p>
+                        <span class="flex-30">
+                            <i class="fa fa-desktop" ng-if="screen.settings.orientation == 'LANDSCAPE'"></i>
+                            <i class="fa fa-mobile fa-15x" ng-if="screen.settings.orientation == 'PORTRAIT'"></i>
+                            |
+                            <span>{{screen.settings.size}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-parent" ng-click="addScreen()">
+                <div class="card">
+                    <div class="card-image">
+                        <i class="fa fa-plus-circle fa-5x" style="margin-left: 35%"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <p>Hinzufügen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-80 designer-live-view-parent" ng-style="css.screen">
+        <div class="designer-live-view" ng-if="currentScreen != undefined" ng-style="screenSettings.css"
+             style="position: relative">
+            <pos.designer.designer-liveview-directive ng-repeat="area in currentScreen.data" area="area"
+                                                      selected="selected"
+                                                      liveview-size="screenSettings.css"></pos.designer.designer-liveview-directive>
+        </div>
+    </div>
+    <div class="flex-10 flex-column-fill side-bar-right">
+        <h3 class="text-center">Menü</h3>
+        <hr class="custom-hr">
+        <h5 class="text-center">Sammlung</h5>
+        <button class="btn btn-default side-button"
+                ng-click="showOpenCollectionDialog($event)">
+            <i class="fa fa-folder-open-o"></i>
+            Öffnen
+        </button>
+        <button class="btn btn-default side-button">
+            <i class="fa fa-paint-brush"></i>
+            Design
+        </button>
+        <button class="btn btn-default side-button"
+                ng-click="saveScreenCollection()">
+            <i class="fa fa-floppy-o"></i>
+            Speichern
+        </button>
+        <button class="btn btn-default side-button"
+                ng-click="publish()">
+            <i class="fa fa-upload"></i>
+            Veröffentlichen
+        </button>
+        <button class="btn btn-default side-button"
+                ng-click="showCollectionSettings($event)">
+            <i class="fa fa-cog"></i>
+            Einstellungen
+        </button>
+        <div ng-if="currentScreen != undefined">
+            <hr class="custom-hr">
+            <h5 class="text-center">Oberfläche</h5>
+            <button class="btn btn-default side-button"
+                    ng-click="showNewElementsDialog($event)">
+                <i class="fa fa-plus-square"></i>
+                Neues Element
+            </button>
+
+            <button class="btn btn-default side-button">
+                <i class="fa fa-undo"></i>
+                Zurücksetzen
+            </button>
+            <div class="side-block">
+                <label>
+                    <checkbox ng-model="currentScreen.settings.orientation" ng-true-value="LANDSCAPE"
+                              ng-false-value="PORTRAIT"
+                              ng-click="changeOrientation(false, false)"></checkbox>
+                    Querformat
+                </label>
+                <br/>
+                <label>
+                    <checkbox ng-model="currentScreen.settings.orientation" ng-true-value="PORTRAIT"
+                              ng-false-value="LANDSCAPE"
+                              ng-click="changeOrientation(true, false)"></checkbox>
+                    Hochformat
+                </label>
+                <rzslider rz-slider-model="currentScreen.settings.size"
+                          rz-slider-options="screenSettings.sizeOptions"></rzslider>
+            </div>
+            <button class="btn btn-default side-button">
+                <i class="fa fa-paint-brush"></i>
+                Design
+            </button>
+
+            <button class="btn btn-default side-button"
+                    ng-click="showScreenSettings()">
+                <i class="fa fa-cog"></i>
+                Einstellungen
+            </button>
+        </div>
+        <div ng-if="selected.area != undefined">
+            <hr class="custom-hr">
+            <h5 class="text-center">Element</h5>
+            <div class="side-block" style="padding: 5px;">
+                <div class="layout-row layout-align-center-center">
+                    <div class="flex-30">Größe</div>
+                    <div class="flex-30">
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="flex-10" style="text-align: center">x</div>
+                    <div class="flex-30">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="layout-row layout-align-center-center">
+                    <div class="flex-30">Pos</div>
+                    <div class="flex-30">
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="flex-10" style="text-align: center">x</div>
+                    <div class="flex-30">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-default side-button" ng-click="showSettings(false)">
+                <i class="fa fa-cogs"></i>
+                Einstellungen
+            </button>
+            <button class="btn btn-default side-button" ng-click="showSettings(true)">
+                <i class="fa fa-paint-brush"></i>
+                Design
+            </button>
+            <button class="btn btn-default side-button" ng-click="deleteArea()">
+                <i class="fa fa-trash"></i>
+                Löschen
+            </button>
+        </div>
+    </div>
+</div>

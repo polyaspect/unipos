@@ -1,0 +1,63 @@
+<div class="mainCardHeader">
+    <div class="layout-row layout-align-center-center">
+        <div class="flex-50">
+            <h1>Artikel</h1>
+        </div>
+        <div class="flex-offset-10 flex-40" style="display:inherit">
+            <h3 >Unternehmen: </h3>
+            <ui-select ng-change="selectionChanged()" placeholder="Unternehmen"
+                       ng-model="$parent.selectedCompany" style="margin-left:8px;margin-top:16px; width:100%"
+                       search-enabled="false"
+                       onclick="setTimeout(function(){document.activeElement.blur();},50)"
+                        skip-focusser="true">
+                <ui-select-match>
+                    <span ng-bind="$select.selected.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="company.guid as company in companies | filter: $select.search">
+                    {{company.name}}
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit ui-grid-draggable-rows
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill flexOne">
+    </div>
+</div>
+<div class="layout-column mainCardFooter">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-50">
+            <div class="layout-row">
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="showCreateProductDialog(true)">
+                        <i class="fa fa-plus fa-md"></i> Erstellen
+                    </button>
+                </div>
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-danger btn-lg flex-row-fill"
+                            ng-disabled="buttonDisabled"
+                            ng-click="openSelectedArticle()"> <i class="fa fa-pencil fa-md"></i> Bearbeiten
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="flex-50">
+            <div class="layout-row">
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-success btn-lg flex-row-fill"
+                            ng-click="publishChanges()">
+                        <i class="fa fa-upload fa-md"></i> Freigeben
+                    </button>
+                </div>
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-warning btn-lg flex-row-fill"
+                            ng-click="resetChanges()">
+                        <i class="fa fa-undo fa-md"></i> Verwerfen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

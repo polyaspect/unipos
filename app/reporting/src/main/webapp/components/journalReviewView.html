@@ -1,0 +1,26 @@
+<div class="mainCardHeader">
+    <div class="layout-row">
+        <div class="flex-100">
+            <h1>Alle Rechnungen</h1>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+    </div>
+</div>
+<div class="mainCardFooter layout-column">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-100">
+            <div class="layout-row">
+                <div class="flex-100 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="makeEditorVisible()" ng-disabled="buttonDisabled">
+                        Rechnung anzeigen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

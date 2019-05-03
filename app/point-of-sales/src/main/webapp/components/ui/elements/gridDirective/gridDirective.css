@@ -1,0 +1,72 @@
+.jk-grid {
+    height: 100%;
+    font-family: monospace;
+    font-size: 13pt;
+    color: black;
+}
+
+.jk-grid .ui-grid-header-cell {
+    height: 0;
+}
+
+.jk-grid .ui-grid-row-text {
+    white-space: pre;
+    top: 50%;
+    height: 100%;
+    padding:8px;
+}
+
+.ui-grid-canvas {
+    padding-top: 0px;
+    margin-left:8px;
+}
+
+.jk-grid .ui-grid {
+    background-color: white;
+    margin: 4px 4px 6px 4px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    text-transform: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.jk-grid .ui-grid-cell {
+    height: 100% !important;
+    min-height: 100% !important;
+}
+
+.ui-grid-row {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px;
+    height: 40px !important;
+}
+
+.ui-grid-viewport{
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}
+
+/* Scrollbar */
+
+.jk-grid ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 50px;
+}
+
+.jk-grid ::-webkit-scrollbar-thumb {
+    background-color: rgb(196, 196, 196);
+    border-radius: 0;
+}
+
+.jk-grid ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(196, 196, 196);
+}
+
+.jk-grid ::-webkit-scrollbar-track {
+    background-color: rgb(237, 237, 237);
+}
+
+/* End Scrollbar */

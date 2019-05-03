@@ -1,0 +1,18 @@
+/*
+.report-preview .fixed-calendar {
+    width: 340px;
+    height: 340px;
+    display: block;
+}
+
+.report-preview .fixed-calendar .md-calendar-scroll-mask {
+    width: 340px !important;
+}
+
+.report-preview .fixed-calendar .md-virtual-repeat-scroller {
+    width: 340px !important;
+    height: 308px;
+}*/
+.report-preview .report-viewer {
+    height: 91vh;
+}

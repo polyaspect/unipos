@@ -1,0 +1,158 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Filiale erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Filiale bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Bezeichnung:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.name">
+                    <div class="help-block">Ein eindeutiger Name, der als Kennzeichnung für die Filiale benutzt wird.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Unternehmen:</label>
+                <div class="col-md-10">
+                    <ui-select placeholder="Firma" ng-model="model.companyGuid">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="company.guid as company in companies | filter: $select.search">
+                            {{company.name}}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">Das zugehörige Unternehmen der Filiale.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Betriebsschluss:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="time"
+                           ng-model="model.closeHour">
+                    <div class="help-block">Um diese Uhrzeit wird der automatische Tagesabschluss durchgeführt und der Betriebstag wechselt.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Unipos CashCube hier platziert?:</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <checkbox ng-model="model.controllerStore"></checkbox>
+                    </div>
+                    <div class="help-block">Bitte aktivieren, wenn sich in dieser Filiale ein CashCube befindet.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Addresse">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Straße:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.address.street">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">PLZ:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.address.postCode">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Stadt:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.address.city">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Land:</label>
+                <div class="col-md-10">
+                    <ui-select placeholder="Staat" ng-model="model.address.country">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="country.name as country in countriesOftheWorld | filter: $select.search">
+                            {{country.name}}
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="3" heading="Kontakt">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">E-Mail:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="email"
+                           ng-model="model.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Telefonnummer:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Fax:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.fax">
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="4" heading="Tagesabschluss">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Wechselgeldstand:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.pettyCash">
+                    <div class="help-block">Wie viel Wechselgeld soll nach dem Tagesabschluss in der Kasse bleiben?</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Finanzbericht automatisch drucken:</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <checkbox ng-model="model.printDailySettlementReport"></checkbox>
+                    </div>
+                    <div class="help-block">Wenn aktiviert, wird beim Tagesabschluss automatisch der Finanzbericht des Tages gedruckt.</div>
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">DEP Email:</label>
+                <div class="col-md-10">
+                    <input class="form-control"
+                           ng-model="model.depEmail">
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="5" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher, dass Sie die Filiale löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Filiale speichern
+    </button>
+</div>

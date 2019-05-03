@@ -1,0 +1,22 @@
+[
+  {
+    "viewName": "Menü anzeigen",
+    "name": "signature.accessAllowed",
+    "partition": "Signatur"
+  },
+  {
+    "viewName": "Nullbeleg-Druck anzeigen",
+    "name": "signature.showZeroInvoices",
+    "partition": "Signatur"
+  },
+  {
+    "viewName": "Signatur-Optionen anzeigen",
+    "name": "signature.showSignatureOptions",
+    "partition": "Signatur"
+  },
+  {
+    "viewName": "DEP exportieren",
+    "name": "signature.exportDep",
+    "partition": "Signatur"
+  }
+]

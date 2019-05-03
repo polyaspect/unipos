@@ -1,0 +1,9 @@
+[
+  {
+    "name": "admin",
+    "rights": [
+      "core.accessAllowed",
+      "core.showLogs"
+    ]
+  }
+]

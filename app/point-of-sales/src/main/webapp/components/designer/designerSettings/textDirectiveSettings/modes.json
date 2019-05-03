@@ -1,0 +1,30 @@
+[
+  {
+    "text": "Artikelmengen anzeigen",
+    "name": "quantity"
+  },
+  {
+    "text": "Geldbeträge anzeigen",
+    "name": "price"
+  },
+  {
+    "text": "Ziffernblock-Ausgaben anzeigen",
+    "name": "numpad"
+  },
+  {
+    "name": "keyboard",
+    "text": "Tastatur-Ausgaben anzeigen"
+  },
+  {
+    "text": "Fehlermeldungen anzeigen",
+    "name": "errorMessages"
+  },
+  {
+    "text": "Informationen anzeigen",
+    "name": "infoMessages"
+  },
+  {
+    "text": "Angemeldeten Benutzer anzeigen",
+    "name": "loggedInUser"
+  }
+]

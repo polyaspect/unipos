@@ -1,0 +1,22 @@
+{
+  "name": "unipos-printer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "angular-bootstrap-checkbox": "^1.0.0",
+    "angular-ui-bootstrap": "^1.3.3",
+    "bootstrap": "^3.3.7",
+    "ui-select": "^0.19.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.unipos.at:2201/dev/unipos-printer.git"
+  },
+  "author": "Joyce Alex",
+  "license": "ISC"
+}

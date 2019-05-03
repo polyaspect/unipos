@@ -1,0 +1,3 @@
+Jurisdictional: https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2015_II_410/BGBLA_2015_II_410.html
+
+Error Codes: http://www.cardwerk.com/smartcards/smartcard_standard_ISO7816-4_6_basic_interindustry_commands.aspx#chap6_12

@@ -1,0 +1,69 @@
+#user-outer-div md-card-content {
+    height: 85vh;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+}
+
+#user-outer-div md-content {
+    background-color: transparent;
+}
+
+#user-outer-div #user-Table {
+    width: 100%;
+    height: calc(100% - 10rem);
+}
+
+#user-outer-div #infoView {
+    height: calc(100% - 5rem);
+    position: relative;
+}
+
+#user-outer-div #infoView h2 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.help-block {
+    color: #bdbdbd;
+    margin-top: 2px;
+    margin-left: 2px;
+    font-size: 10px;
+    font-weight: 300;
+    flex: 1;
+    order: 3;
+}
+
+md-select {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+#user-outer-div #btn_createUser {
+    height: 1rem;
+    margin-top: 2rem;
+}
+
+#user-outer-div #searchbox {
+    margin-bottom: 0.3rem;
+}
+
+#user-outer-div .big-button {
+    height: 4rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.green-button {
+    background-color: green !important;
+}
+
+.red-button {
+    background-color: red !important;
+}
+
+.ui-grid-cell.blue {
+    background-color: #03A9F4 !important ;
+    color: #000000 !important;
+}

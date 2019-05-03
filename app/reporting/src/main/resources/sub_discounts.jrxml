@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_discounts" pageWidth="161" pageHeight="32" whenNoDataType="NoPages" columnWidth="161" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8b0a4067-692e-4337-abb6-7ba32770450e">
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<style name="Base" isDefault="true" hTextAlign="Left" vTextAlign="Middle" markup="styled" fontName="Courier New" fontSize="10" pdfFontName="Courier"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="_THIS" class="unipos.common.remote.pos.model.Discount"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="127" y="0" width="34" height="12" isRemoveLineWhenBlank="true" uuid="f6f3aed4-eab5-410a-bbed-281b73a224b3">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format(Double.valueOf($F{_THIS}.getAmount().negate().toString()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="127" height="12" isRemoveLineWhenBlank="true" uuid="662fb69d-451d-43cb-ab4a-eceb8da0528c">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{_THIS}.getLabel()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

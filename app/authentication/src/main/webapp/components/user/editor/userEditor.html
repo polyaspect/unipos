@@ -1,0 +1,137 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Benutzer erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Benutzer bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Vorname:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.name">
+                    <div class="help-block">Der Vorname des Benutzers.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Nachname:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.surname">
+                    <div class="help-block">Der Nachname des Benutzers.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Unternehmen:</label>
+                <div class="col-md-10">
+                    <ui-select placeholder="Warengruppe" ng-model="model.companyGuid">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="company.guid as company in companies | filter: $select.search">
+                            {{company.name }}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">Das Unternehmen des Benutzers.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Berechtigungen">
+            <div style="margin-top: 2%">
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-info gl"
+                         ng-repeat="partition in partitions">
+                        <uib-accordion-heading>
+                            <div ng-click="onModuleSelected(partition, $event)"></div>
+                            {{partition.partition}}
+                        </uib-accordion-heading>
+                        <label class="gl-cell gl-md-12 auth-user-editor partition-checkbox"
+                               ng-repeat="type in partition.types">
+                            <checkbox class="btn-info" ng-model="type.checked"
+                                      ng-click="onRightSelected(partition,type)"></checkbox>
+                            {{type.name}}
+                        </label>
+                    </div>
+                </uib-accordion>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Benutzername+Passwort">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Aktiviert:</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <checkbox ng-model="model.usernamePassword.active"></checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Benutzername:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.usernamePassword.username" ng-disabled="!model.usernamePassword.active">
+                    <div class="help-block">Der Benutzername des Mitarbeiters, welcher zum Anmelden am System verwendet
+                        wird.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Passwort:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text"
+                           ng-model="model.usernamePassword.password" ng-disabled="!model.usernamePassword.active">
+                    <div class="help-block">Das Passwort zum Anmelden am System.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="3" heading="MitarbeiterNr+Pin">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Aktiviert:</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <checkbox ng-model="model.mitarbeiterIdPin.active"></checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Mitarbeiter Nummer:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.mitarbeiterIdPin.mitarbeiterid" ng-disabled="!model.mitarbeiterIdPin.active">
+                    <div class="help-block">Die Benutzernummer des Mitarbeiters, welche zum Anmelden am System verwendet
+                        wird.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">PIN:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.mitarbeiterIdPin.pin" ng-disabled="!model.mitarbeiterIdPin.active">
+                    <div class="help-block">Der PIN zum Anmelden am System.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="4" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher dass sie den Benutzer löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Benutzer speichern
+    </button>
+</div>

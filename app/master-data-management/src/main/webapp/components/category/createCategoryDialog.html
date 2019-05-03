@@ -1,0 +1,31 @@
+<md-dialog aria-label="Warenguppe erstellen">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Warengruppe erstellen</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <md-icon md-svg-src="assets/images/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <form>
+            <div layout layout-sm="column">
+                <md-input-container >
+                    <label>Bezeichnung</label>
+                    <input type="text"  ng-model="category.name">
+                    <div class="help-block">Der Name der Warengruppe.</div>
+                </md-input-container>
+            </div>
+            <div layout layout-sm="column">
+                <md-input-container >
+                    <md-select placeholder="USt. Klasse" ng-model="category.taxRate.id">
+                        <md-option ng-repeat="taxRate in taxRates" value="{{taxRate.id}}">{{taxRate.name}}</md-option>
+                    </md-select>
+                    <div class="help-block">Die Umsatzsteuerklasse die angewendet wird.</div>
+                </md-input-container>
+            </div>
+        </form>
+        <md-button ng-click="save()" class="md-primary">Erstellen</md-button>
+    </md-dialog-content>
+</md-dialog>

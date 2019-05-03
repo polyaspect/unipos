@@ -1,0 +1,33 @@
+.global-settings {
+    width: 100%;
+    height: 100%;
+}
+
+.global-settings md-tabs {
+    overflow: auto;
+}
+
+.global-settings md-dialog-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.global-settings md-content {
+    flex-wrap: wrap;
+}
+
+.global-settings md-card {
+    height: 30%;
+}
+
+.global-settings md-card-title {
+    height: 125px;
+}
+
+.global-settings md-tabs.functions md-input-container textarea {
+    height: 75px;
+}
+
+.global-settings md-tabs.functions md-input-container label {
+    margin-left: 25px;
+}

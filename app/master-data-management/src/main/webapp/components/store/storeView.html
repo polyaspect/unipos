@@ -1,0 +1,33 @@
+<div class="mainCardHeader">
+    <div class="layout-row">
+        <div class="flex-100">
+            <h1>Filialen</h1>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+    </div>
+</div>
+<div class="mainCardFooter layout-column">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-100">
+            <div class="layout-row">
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="showCreateStoreDialog(true)">
+                        <i class="fa fa-plus fa-md"></i> Erstellen
+                    </button>
+                </div>
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-danger btn-lg flex-row-fill"
+                            ng-disabled="buttonDisabled"
+                            ng-click="openSelectedStore()">
+                        <i class="fa fa-pencil fa-md"></i> Bearbeiten
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

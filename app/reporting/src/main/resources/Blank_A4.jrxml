@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="204" pageHeight="841" whenNoDataType="AllSectionsNoDetail" columnWidth="204" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="6b087744-48ec-4f5b-afc7-c16d4515856c">
+	<property name="net.sf.jasperreports.export.text.page.width" value="48"/>
+	<property name="net.sf.jasperreports.export.text.page.height" value="12000"/>
+	<property name="net.sf.jasperreports.export.text.character.height" value="12"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="net.sf.jasperreports.text.measurer.factory.single.line" value="com.jaspersoft.jasperserver.api.engine.jasperreports.util.SingleLineTextMeasurerFactory"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Base" isDefault="true" hTextAlign="Left" vTextAlign="Middle" markup="styled" fontName="Courier New" fontSize="10" pdfFontName="Courier"/>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<field name="invoiceItems" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItems]]></fieldDescription>
+	</field>
+	<field name="cashier" class="unipos.common.remote.pos.model.Cashier">
+		<fieldDescription><![CDATA[cashier]]></fieldDescription>
+	</field>
+	<field name="invoiceId" class="java.lang.Long">
+		<fieldDescription><![CDATA[invoiceId]]></fieldDescription>
+	</field>
+	<field name="turnoverGross" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverGross]]></fieldDescription>
+	</field>
+	<field name="creationDate" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[creationDate]]></fieldDescription>
+	</field>
+	<field name="turnoverNet" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverNet]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="_THIS" class="unipos.common.remote.pos.model.Invoice"/>
+	<field name="company" class="unipos.common.remote.data.model.company.Company">
+		<fieldDescription><![CDATA[company]]></fieldDescription>
+	</field>
+	<field name="store" class="unipos.common.remote.data.model.company.Store">
+		<fieldDescription><![CDATA[store]]></fieldDescription>
+	</field>
+	<field name="invoiceItemsHendl" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItemsHendl]]></fieldDescription>
+	</field>
+	<field name="invoiceItemsGetraenke" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItemsGetraenke]]></fieldDescription>
+	</field>
+	<field name="invoiceItemsEssen" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItemsEssen]]></fieldDescription>
+	</field>
+	<field name="invoiceItemsCafe" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItemsCafe]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="204" height="12" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["================================================"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="12" width="204" height="12" uuid="00021da1-a79f-4285-b961-b4cd033306b9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Menge Bezeichnung                            EUR"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="24" width="204" height="12" isRemoveLineWhenBlank="true" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsGetraenke}.size() != 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Getränke-Bon                                    "]]></textFieldExpression>
+			</textField>
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="36" width="204" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="fc96bbe0-695a-4305-b4f2-b46bf58c454a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItemsGetraenke})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_OrderItems.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="48" width="204" height="12" isRemoveLineWhenBlank="true" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[($F{invoiceItemsGetraenke}.size() != 0 && $F{invoiceItemsEssen}.size() != 0) || ($F{invoiceItemsGetraenke}.size() != 0 && $F{invoiceItemsHendl}.size() != 0 && $F{invoiceItemsEssen}.size() == 0) || ($F{invoiceItemsGetraenke}.size() != 0 && $F{invoiceItemsHendl}.size() == 0 && $F{invoiceItemsEssen}.size() == 0 && $F{invoiceItemsCafe}.size() != 0)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["<@--break-->                                    "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="204" height="12" isRemoveLineWhenBlank="true" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsEssen}.size() != 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Essen-Bon                                       "]]></textFieldExpression>
+			</textField>
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="12" width="204" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="fc96bbe0-695a-4305-b4f2-b46bf58c454a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItemsEssen})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_OrderItems.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="24" width="204" height="12" isRemoveLineWhenBlank="true" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsEssen}.size() != 0 && $F{invoiceItemsHendl}.size() != 0 || ($F{invoiceItemsEssen}.size() != 0 && $F{invoiceItemsCafe}.size() != 0 && $F{invoiceItemsHendl}.size() == 0)]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["<@--break-->                                    "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="37" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="0" y="0" width="204" height="12" isRemoveLineWhenBlank="true" uuid="afc4d674-7361-4ca3-b739-9cecc45156a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsHendl}.size() != 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Hendl-Bon                                       "]]></textFieldExpression>
+			</textField>
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="12" width="204" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="fc96bbe0-695a-4305-b4f2-b46bf58c454a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItemsHendl})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_OrderItems.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="24" width="204" height="12" uuid="65e631c0-8959-487c-b297-bd07bf2a292a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsCafe}.size() != 0 && $F{invoiceItemsHendl}.size() != 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["<@--break-->                                    "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="204" height="12" isRemoveLineWhenBlank="true" uuid="f74b48d3-112f-4381-b3c6-05c6744780b8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{invoiceItemsCafe}.size() != 0]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Cafe-Bon                                        "]]></textFieldExpression>
+			</textField>
+			<subreport runToBottom="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="12" width="204" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="168a9739-e217-4382-a64e-d5a3a782d795">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItemsCafe})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_OrderItems.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="24" width="204" height="12" uuid="9731a684-ae3b-4683-906f-464ccceab6e2">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["------------------------------------------------"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="37">
+			<staticText>
+				<reportElement x="0" y="0" width="102" height="12" uuid="7dee5341-4789-42a8-888c-58c1182ee7c4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[SUMME  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="0" width="102" height="12" uuid="be9c4199-18dc-43d4-a60a-68b58dcb0685">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format(Double.valueOf($F{turnoverGross}.toString()))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="12" width="203" height="12" uuid="b5c93cfa-ab5b-421f-9b07-6d5f5e28fef5">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["================================================"]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="24" width="204" height="12" uuid="00521b69-de26-4c93-ab71-ab3238900ca0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_Payment.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

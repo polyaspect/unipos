@@ -1,0 +1,36 @@
+<div class="mainCardHeader">
+    <div class="layout-row layout-align-start-center">
+        <h1>Null-Beleg Journal</h1>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+    </div>
+</div>
+<div class="mainCardFooter layout-column">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-100">
+            <div class="layout-row">
+                <div class="flex-25 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="makeEditorVisible()" ng-disabled="buttonDisabled">
+                        Null-Beleg anzeigen
+                    </button>
+                </div>
+                <div class="flex-25 flex-offset-25 btn-big-div">
+                    <button type="button" class="btn btn-success btn-lg flex-row-fill"
+                            ng-click="printStartInvoice()" ng-disabled="buttonDisabled">
+                        Start-Belag erstellen
+                    </button>
+                </div>
+                <div class="flex-25 btn-big-div">
+                    <button type="button" class="btn btn-warning btn-lg flex-row-fill"
+                            ng-click="printZeroInvoice()" ng-disabled="buttonDisabled">
+                        Weiteren Null-Beleg erstellen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

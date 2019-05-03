@@ -1,0 +1,18 @@
+.jk-panel {
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+}
+.jk-panel > md-button{
+    flex: 1;
+}
+.jk-panel .jk-panel-slide {
+    height: 100%;
+    width: 100%;
+    flex: auto;
+}
+
+.jk-panel .jk-panel-item {
+    position: relative;
+}

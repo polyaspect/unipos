@@ -1,0 +1,4 @@
+To use the Printer with USB you need to install the Driver WinUSB for the Device.
+
+You get the Vendor and DeviceId from the following website:
+http://www.binaryconvert.com/convert_signed_short.html

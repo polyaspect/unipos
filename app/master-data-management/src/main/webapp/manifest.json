@@ -1,0 +1,11 @@
+{
+  "name": "Daten verwalten",
+  "icons": [
+    {
+      "128": "logo.png",
+      "48": "logo.png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone"
+}

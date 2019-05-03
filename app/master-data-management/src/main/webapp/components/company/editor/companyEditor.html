@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Unternehmen erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Unternehmen bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-3 control-label">Firma:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" title="Name"
+                           ng-model="model.name">
+                    <div class="help-block">Die Firmenbezeichnung des Unternehmens.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">UID-Nummer:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.uid">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Firmenbuchnummer:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.commercialRegisterNumber">
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher, dass Sie das Unternehmen löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Unternehmen speichern
+    </button>
+</div>

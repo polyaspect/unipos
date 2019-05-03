@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_1" pageWidth="204" pageHeight="12" whenNoDataType="NoPages" columnWidth="204" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8b0a4067-692e-4337-abb6-7ba32770450e">
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<style name="Base" isDefault="true" hTextAlign="Left" vTextAlign="Middle" markup="styled" fontName="Courier New" fontSize="10" pdfFontName="Courier"/>
+	<queryString language="json">
+		<![CDATA[invoiceItems.turnoverGross]]>
+	</queryString>
+	<field name="position" class="java.lang.Integer">
+		<fieldDescription><![CDATA[position]]></fieldDescription>
+	</field>
+	<field name="label" class="java.lang.String">
+		<fieldDescription><![CDATA[label]]></fieldDescription>
+	</field>
+	<field name="turnoverGross" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverGross]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[discount]]></fieldDescription>
+	</field>
+	<field name="reason" class="java.lang.String">
+		<fieldDescription><![CDATA[reason]]></fieldDescription>
+	</field>
+	<field name="reversalAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[reversalAmount]]></fieldDescription>
+	</field>
+	<field name="paymentMethod" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentMethod]]></fieldDescription>
+	</field>
+	<field name="turnover" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnover]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement key="" x="0" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="02e12c80-4ff7-46b0-84e8-50ca6d9a5872">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("paymentInvoiceItem") || (
+$F{class}.getSimpleName().equalsIgnoreCase("changeInvoiceItem") && !$F{turnover}.equals(new BigDecimal("0.00")))]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") ? "GEGEBEN" :
+$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") ? "RETOUR" :
+""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="" x="60" y="0" width="89" height="12" isRemoveLineWhenBlank="true" uuid="ed982d0f-dbab-4231-a861-7dbfe84731ab">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("paymentInvoiceItem") || (
+$F{class}.getSimpleName().equalsIgnoreCase("changeInvoiceItem") && !$F{turnover}.equals(new BigDecimal("0.00")))]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") ? $F{label}.toUpperCase() : 
+$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") ? $F{label}.toUpperCase() :
+""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="149" y="0" width="55" height="12" isRemoveLineWhenBlank="true" uuid="42266be9-7237-4ff9-811f-ed4612bf0c06">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("paymentInvoiceItem") || (
+$F{class}.getSimpleName().equalsIgnoreCase("changeInvoiceItem") && !$F{turnover}.equals(new BigDecimal("0.00")))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{class}.getSimpleName().equalsIgnoreCase("PaymentInvoiceItem") ? new java.text.DecimalFormat("#,##0.00").format(Double.valueOf($F{turnover}.toString())) :
+$F{class}.getSimpleName().equalsIgnoreCase("ChangeInvoiceItem") ? new java.text.DecimalFormat("#,##0.00").format(Double.valueOf($F{turnover}.toString())) :
+ ""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

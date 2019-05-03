@@ -1,0 +1,35 @@
+<md-dialog aria-label="Warenguppe erstellen" style="height: 100%; width: 100%;">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Berechtigungen verwalten</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <md-icon md-svg-src="assets/images/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content >
+        <div layout="column">
+            <div flex>
+                <h2>Berechtigungen verwalten</h2>
+                <h3 class="md-title">Berechtigungs-Vorlagen</h3>
+                <md-select placeholder="Vorlagen" ng-change="changedTemplate()" ng-model="selectedTemplate">
+                    <md-option ng-repeat="roleTemplate in roleTemplates" ng-value="roleTemplate">{{roleTemplate.name}}</md-option>
+                </md-select>
+                <div layout="row" style="height: 100%; width: 100%;">
+                    <div ng-repeat="partition in partitions" flex>
+                        <h3>{{partition.partition}}</h3>
+                        <div layout="column">
+                            <div ng-repeat="type in partition.types" flex style="padding-top: 20px">
+                                <md-checkbox ng-model="type.selected">{{type.name}}</md-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div flex="grow" layout-align="end end">
+                <md-button class="md-raised md-primary" ng-click="save()">Übernehmen</md-button>
+            </div>
+        </div>
+    </md-dialog-content>
+</md-dialog>

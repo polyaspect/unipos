@@ -1,0 +1,43 @@
+.designer-live-item-directive {
+    position: absolute;
+    background-color: #29e;
+    color: #fff;
+    border: 1px dotted black;
+}
+
+.designer-live-item-directive > div.content {
+    height: 100%;
+}
+
+.designer-live-item-directive .remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: default;
+    color: black;
+    z-index: 1;
+}
+
+.designer-live-item-directive .edit {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    z-index: 51;
+    cursor: default;
+    color: black;
+}
+
+.designer-live-item-directive .size-position{
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    z-index: 51;
+    cursor: default;
+    color: black;
+}
+.designer-live-item-directive .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}

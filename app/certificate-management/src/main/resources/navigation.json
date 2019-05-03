@@ -1,0 +1,24 @@
+{
+  "right": "signature.accessAllowed",
+  "text": "Signatur",
+  "hyperlink": "/signature/#/zeroInvoices",
+  "icon":"qrcode",
+  "order":8,
+  "subItems":[
+    {
+      "right": "signature.showZeroInvoices",
+      "text": "Nullbelege drucken",
+      "hyperlink": "/signature/#/zeroInvoices"
+    },
+    {
+      "right": "signature.showSignatureOptions",
+      "text": "Signatur-Einstellungen ändern",
+      "hyperlink": "/signature/#/signatureOptions"
+    },
+    {
+      "right": "signature.exportDep",
+      "text": "DEP exportieren",
+      "hyperlink": "/signature/dep/export"
+    }
+  ]
+}

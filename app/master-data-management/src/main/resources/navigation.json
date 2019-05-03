@@ -1,0 +1,44 @@
+{
+  "right": "data.accessAllowed",
+  "text": "Stammdaten",
+  "hyperlink": "maintain",
+  "icon":"database",
+  "order":2,
+  "subItems":[
+    {
+      "right": "data.showCompanies",
+      "text": "Unternehmen",
+      "hyperlink": "/data/#/companies"
+    },
+    {
+      "right": "data.showStores",
+      "text": "Filialen",
+      "hyperlink": "/data/#/stores"
+    },
+    {
+      "right": "data.showCategories",
+      "text": "Warengruppen",
+      "hyperlink": "/data/#/categories"
+    },
+    {
+      "right": "data.showProducts",
+      "text": "Artikel",
+      "hyperlink": "/data/#/products"
+    },
+    {
+      "right": "data.showPaymentMethods",
+      "text": "Zahlungsarten",
+      "hyperlink": "/data/#/paymentMethods"
+    },
+    {
+      "right": "data.showDiscounts",
+      "text": "Rabatte",
+      "hyperlink": "/data/#/discounts"
+    },
+    {
+      "right": "data.showTaxRates",
+      "text": "Steuersätze",
+      "hyperlink": "/data/#/taxRates"
+    }
+  ]
+}

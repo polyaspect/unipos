@@ -1,0 +1,17 @@
+[
+  {
+    "viewName": "Menü anzeigen",
+    "name": "report.accessAllowed",
+    "partition": "Berichte"
+  },
+  {
+    "viewName": "Berichte erstellen",
+    "name": "report.showReportGeneration",
+    "partition": "Berichte"
+  },
+  {
+    "viewName": "Rechnungen anzeigen",
+    "name": "report.showInvoices",
+    "partition": "Berichte"
+  }
+]

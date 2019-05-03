@@ -1,0 +1,31 @@
+<div class="modal-header button-directive-settings">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">jkButton Einstellungen</h4>
+</div>
+<div class="modal-body button-directive-settings">
+    <div class="flex-row-fill flex-column-fill layout-row layout-wrap"
+         ng-show="options.showTypes">
+        <div class="flex-25 flex-column-fill card-parent" ng-repeat="action in actions">
+            <div class="card layout-column">
+                <div class="card-image flex-75">
+                    <h3>{{action.text}}</h3>
+                    <h5>{{action.name}}</h5>
+                </div>
+                <div class="card-content layout-row flex-25">
+                    <span class="flex"></span>
+                    <button class="btn btn-info" ng-click="selectAction(action)">Select</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-row-fill flex-column-fill layout-row layout-wrap directive-tabs"
+         ng-hide="options.showTypes">
+    </div>
+</div>
+<div class="modal-footer button-directive-settings layout-row">
+    <span class="flex"></span>
+    <button type="button" class="btn btn-danger flex-10" data-dismiss="modal" ng-click="hide()">Abbrechen</button>
+    <button type="button" class="btn btn-primary flex-10" data-dismiss="modal" ng-click="save()">Speichern</button>
+</div>

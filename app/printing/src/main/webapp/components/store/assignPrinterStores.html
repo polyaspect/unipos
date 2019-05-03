@@ -1,0 +1,45 @@
+<md-dialog aria-label="Scope einstellen" style="height: 100%; width: 100%;">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Geltungsbereich festlegen</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <md-icon md-svg-src="assets/images/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <md-content style="overflow-x: hidden">
+            <div layout="row" id="productCompanyList">
+                <div flex="50" layout="column">
+                    <md-list>
+                        <md-subheader class="md-no-sticky">Unternehmen</md-subheader>
+                        <md-list-item data-selected="false" ng-click="toggleShowStores($event, company)" ng-repeat="company in companies" data-companyguid="{{company.guid}}" ng-init="company.isSelected = false">
+                            <p>{{ company.name }}</p>
+                            <md-checkbox class="md-secondary" ng-model="company.isSelected" ng-click="selectCompany($event, company)"></md-checkbox>
+                            <md-divider ></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <div flex="50" layout="column" id="productScopeList">
+                    <md-list>
+                        <md-subheader class="md-no-sticky">Filialen</md-subheader>
+                        <md-list-item ng-repeat="store in stores" data-storeguid="{{store.guid}}">
+                            <p>{{store.name}}</p>
+                            <p>{{store.companyName}}</p>
+                            <md-checkbox class="md-secondary" ng-click="selectStore($event, store)" ng-model="store.isSelected"></md-checkbox>
+                            <md-divider ></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </div>
+            </div>
+        </md-content>
+        <md-button style="
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+    margin-bottom: 3rem;
+    margin-right: 3rem;
+" class="md-raised md-primary" ng-click="save()">Übernehmen</md-button>
+    </md-dialog-content>
+</md-dialog>

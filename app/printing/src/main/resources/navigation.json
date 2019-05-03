@@ -1,0 +1,14 @@
+{
+  "right": "printer.accessAllowed",
+  "text": "Drucker",
+  "hyperlink": "/pos/#/pos",
+  "icon":"print",
+  "order":6,
+  "subItems":[
+    {
+      "right": "printer.configurePrinters",
+      "text": "Drucker konfigurieren",
+      "hyperlink": "/printer/#/printers"
+    }
+  ]
+}

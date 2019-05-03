@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    outline: none;
+    font-weight: normal;
+}
+
+body {
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    color: #fff;
+    text-align: center;
+    min-height: 140px;
+    margin-bottom: 60px;
+}
+
+header h1{
+    margin-top: 100px;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 100;
+}
+
+header a{
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.copyright {
+    font-size: 25px;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}

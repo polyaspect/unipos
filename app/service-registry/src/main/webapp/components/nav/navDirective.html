@@ -1,0 +1,54 @@
+<div>
+    <div class="custom-nav-bar flex-row-fill"  ng-if="showNav">
+        <div class="nav shadow">
+            <div class="layout-row welcome-row">
+                <div class="flex-100 flex-row-fill">
+                    <div class="layout-row flex-no-margin">
+                        <div class="flex-xl-60 flex-lg-80 flex-md-90 flex-sm-90 flex-xs-100 flex-offset-xl-20 flex-offset-lg-10 flex-offset-md-5 flex-offset-sm-5 flex-column-fill">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h3 style="font-weight:bold">Willkommen, {{ loggedInUser }}!</h3>
+                                    <h4>Hier k&oumlnnen Sie Ihr Kassensystem verwalten.  <a href="/auth/#/logout"> <i class="fa fa-sign-out fa-md"></i> Logout</a></h4>
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    <img src="../../assets/images/unipos_oem_side_by_side.png" height="58" style="margin-top:20px">
+                                    <div style="margin-right:0px; margin-top:-16px;font-size:10pt">CashCube <i class="fa fa-cube fa-md"></i> Version {{ installedModules.ROOT }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-row menue-row">
+                <div class="flex-100 flex-row-fill">
+                    <div class="layout-row flex-no-margin">
+                        <div class="flex-xl-60 flex-lg-80 flex-md-90 flex-sm-90 flex-xs-100 flex-offset-xl-20 flex-offset-lg-10 flex-offset-md-5 flex-offset-sm-5 flex-column-fill">
+                            <div class="btn-group btn-group-justified" role="group">
+                                <div class="btn-group" role="group" uib-dropdown  ng-repeat="menuItem in nav | orderBy : 'order'">
+                                    <button type="button" class="btn btn-primary navButton" uib-dropdown-toggle>
+                                        <i class="fa fa-{{menuItem.icon}} fa-md"></i> {{menuItem.text}} <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                                        <li ng-repeat="subMenuItem in menuItem.subItems"><a href="{{ subMenuItem.hyperlink }}">{{ subMenuItem.text }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layout-row flex-row-fill" id="store-outer-div" ng-if="showCard">
+            <div class="flex-xl-60 flex-lg-80 flex-md-90 flex-sm-90 flex-xs-100 flex-offset-xl-20 flex-offset-lg-10 flex-offset-md-5 flex-offset-sm-5">
+                <div class="layout-column shadow mainCard" ng-view>
+                </div>
+            </div>
+        </div>
+        <div ng-view ng-if="!showCard" class="no-card">
+        </div>
+    </div>
+
+    <div ng-view ng-if="!showNav" style="position:absolute; top:0; left:0;width:100%;height:100%" >
+
+    </div>
+</div>

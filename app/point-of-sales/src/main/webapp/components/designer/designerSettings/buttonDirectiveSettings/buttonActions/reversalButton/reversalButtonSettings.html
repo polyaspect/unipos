@@ -1,0 +1,28 @@
+<div class="reversal-button-settings flex-column-fill flex-row-fill">
+    <uib-tabset class="settings-tabset" active="activeTab">
+        <uib-tab index="0" heading="Allgemein">
+            <h2>Allgemein</h2>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">OrderDirectives auswählen:</label>
+                    <div class="col-sm-10">
+                        <ui-select placeholder="Payment Method" ng-model="model.orderDirective" skip-focusser="true"
+                                   search-enabled="false">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.data.id"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in orderDirectiveIds | filter: $select.search"
+                                               value="{{item}}">
+                                {{item.data.id}}
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Gestaltung">
+            <h2>Gestaltung der Tabelle</h2>
+            <pos.designer.designer-options.style-settings></pos.designer.designer-options.style-settings>
+        </uib-tab>
+    </uib-tabset>
+</div>

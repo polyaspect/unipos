@@ -1,0 +1,102 @@
+.jk-slider {
+    display: flex !important;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 0;
+    height: 100%;
+}
+
+.jk-slider > slick {
+    height: 100%;
+    margin-bottom: 0;
+    flex: 15;
+}
+
+.jk-slider.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: nowrap;
+}
+
+.jk-slider .flex-item {
+    border: solid #111111 thin;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    flex: 1;
+}
+
+.jk-slider slick .slick-list {
+    height: 100%;
+}
+
+.jk-slider slick .slick-track {
+    height: 100%;
+    display: flex;
+}
+
+.jk-slider .slide-item-div {
+    height: 90%;
+    flex: 1;
+}
+
+.jk-slider .slick-list {
+    margin-right: 5px;
+}
+
+.jk-slider #slick-buttons {
+    display: none;
+}
+
+.jk-slider .scroll-button.prev {
+    padding-right: 0;
+}
+
+.jk-slider .slide {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.jk-slider .row {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.jk-slider .cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.jk-slider .cell button {
+    flex: 1;
+    margin-bottom: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    line-height: 1.2;
+}
+
+.jk-slider .row:last-child .cell button {
+    margin-bottom: 6px;
+}
+
+.jk-slider .cell button span {
+    white-space: normal;
+}
+
+.jk-slider .jk-button {
+    height: inherit;
+}

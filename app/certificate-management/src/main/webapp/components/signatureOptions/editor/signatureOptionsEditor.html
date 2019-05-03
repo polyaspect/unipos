@@ -1,0 +1,112 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Signatur-Einstellung erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Signatur-Einstellung bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-3 control-label">Filiale:</label>
+                <div class="col-md-9">
+                    <ui-select placeholder="Filiale" ng-model="model.storeGuid">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="store.guid as store in model.stores | filter: $select.search">
+                            {{store.name}}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">In welcher Filiale wird die Signaturkarte verwendet?.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Kassa-ID</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" title="Kassa-ID"
+                           ng-model="model.kassaId">
+                    <div class="help-block">Die beim Finanzamt registrierte Kassa-ID</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Vertrauensdienst-Anbieter:</label>
+                <div class="col-md-9">
+                    <ui-select placeholder="RKS Suite" ng-model="model.rksSuite">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.text"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="rka.id as rka in rkas | filter: $select.search">
+                            {{rka.text}}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">Das zugehörige Unternehmen der Filiale.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Signaturkarten-Seriennummer</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.crtSerialNo">
+                    <div class="help-block">Die Seriennummer des Signaturkarten-Zertifikates. Bsp: f2-a3-64-ac</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Signaturkarten-PIN</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.signaturPin">
+                    <div class="help-block">Der geheime PIN der Signaturkarte. Bsp: 123456</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Verschlüsselungs Passwort:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.secretKeyPlainText">
+                    <div class="help-block">Damit wird der Umsatz-Zähler auf der Rechnung verschlüsselt.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Verschlüsselungs Passwort Wiederholen:</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text"
+                           ng-model="model.secretKeyPlainTextRepeat">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Benutzerschlüssel AES-256:</label>
+                <div class="col-md-9">
+                    <span>{{model.encodedPassword}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Prüfwert:</label>
+                <div class="col-md-9">
+                    <span>{{model.verificationValue}}</span>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie ABSOLUT sicher das Sie diese Signatur-Einstellung entfernen möchten? Dadurch kann es sein, dass die Registrierkasse nicht mehr ordnungsgemäß funktioniert!
+                            </h3>
+                            <button class="btn btn-danger" ng-click="delete()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="save()">
+        Signatur-Einstellung speichern
+    </button>
+</div>
+

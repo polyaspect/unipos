@@ -1,0 +1,17 @@
+<div class="mitarbeiter-pin flex-column-fill">
+    <div class="login-page">
+        <img src="../../assets/images/unipos_oem.png" height="225" style="margin-bottom:40px">
+        <div class="form">
+            <form class="login-form">
+                <h1>Login</h1>
+                <h4>Bitte geben Sie Ihre Mitarbeiter-Nr. und Ihren PIN ein</h4>
+                <br/>
+                <input type="number" ng-model="user.mitarbeiternr" placeholder="Mitarbeiter Nr." required autofocus>
+                <input type="password" ng-model="user.pin" placeholder="PIN" required>
+                <button class="btn btn-primary" ng-click="pinLogin()">Anmelden</button>
+                <br/><br/>
+                <a href="/auth/#/loginByUsername">Mit Passwort anmelden</a>
+            </form>
+        </div>
+    </div>
+</div>

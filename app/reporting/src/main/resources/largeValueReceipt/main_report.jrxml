@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-26T11:55:37 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="main_report" pageWidth="595" pageHeight="842" columnWidth="480" leftMargin="56" rightMargin="56" topMargin="42" bottomMargin="42" uuid="7ce763fb-a1cc-4b8f-b0ff-b46c1f61e1d3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Receipt"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="store" class="unipos.common.remote.data.model.company.Store">
+		<fieldDescription><![CDATA[store]]></fieldDescription>
+	</field>
+	<field name="creationDate" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[creationDate]]></fieldDescription>
+	</field>
+	<field name="turnoverNet" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverNet]]></fieldDescription>
+	</field>
+	<field name="invoiceItems" class="java.util.List">
+		<fieldDescription><![CDATA[invoiceItems]]></fieldDescription>
+	</field>
+	<field name="cashier" class="unipos.common.remote.pos.model.Cashier">
+		<fieldDescription><![CDATA[cashier]]></fieldDescription>
+	</field>
+	<field name="invoicesTaxStuff" class="java.util.List">
+		<fieldDescription><![CDATA[invoicesTaxStuff]]></fieldDescription>
+	</field>
+	<field name="company" class="unipos.common.remote.data.model.company.Company">
+		<fieldDescription><![CDATA[company]]></fieldDescription>
+	</field>
+	<field name="turnoverGross" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[turnoverGross]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="invoiceId" class="java.lang.Long">
+		<fieldDescription><![CDATA[invoiceId]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="223" splitType="Stretch">
+			<textField>
+				<reportElement x="280" y="0" width="200" height="15" uuid="1089b601-8374-4c7f-a04e-74f0c47655a7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{store}.getName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="15" width="200" height="15" uuid="c193cec5-c276-4c5a-84ae-c0ee6ac18acf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{store}.getAddress().getStreet()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="30" width="200" height="15" uuid="f5364065-d1af-4e49-81b9-5fb772bbea30">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{store}.getAddress().getPostCode() + " " + $F{store}.getAddress().getCity()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="65" width="200" height="15" uuid="3b464b89-4df6-4697-a895-7f32ecc7e538"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telefon: " + $F{store}.getPhone()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="95" width="200" height="15" uuid="fe2b787d-cb04-4054-9e79-50b97acfbe96">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Webseite: www.unipos.at"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="80" width="200" height="15" uuid="5aefc1d4-5127-47e1-bd66-2aa8b30b3d25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["E-Mail: " + $F{store}.getEmail()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="155" width="100" height="15" uuid="fbaa753d-fb71-4e79-b7d1-5c89d694f331"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Herr/Frau/Firma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="170" width="160" height="15" uuid="b38a7c82-422c-402a-8167-39d33357aad8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Unipos IT Solutions e.U.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="185" width="160" height="15" uuid="1fde44d1-8f92-405e-866d-d1c8d2f56cb8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Lafitegasse 26c]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="160" height="15" uuid="6aedf899-773c-4425-940e-38a2946126ff"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[1130 Wien]]></text>
+			</staticText>
+			<image vAlign="Top">
+				<reportElement x="1" y="0" width="163" height="126" uuid="9f6004d2-40ed-4186-a9f1-97955b906757"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="106" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="42" width="480" height="60" uuid="22a8e75e-e5cd-4352-8a7b-bd1337510ef6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sehr geehrter Herr/Frau/Firma <Name hier>,\n\n"
++
+"vielen Dank für Ihren Kauf. Ich hoffe, dass Sie mit dem gelieferten Registrierkassen-System zufrieden sind. Für die gelieferten Waren und Dienstleistungen verrechne ich Ihnen:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="160" height="20" uuid="35812dbd-dad3-4740-a886-e12d9ac60c9c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECHNUNG]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="300" y="22" width="180" height="13" uuid="903e5f42-2fb6-4021-8392-4429915f0b12"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rechnungsdatum: "+$F{creationDate}.format( java.time.format.DateTimeFormatter.ofPattern("dd. MMMM yyyy") )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="9" width="180" height="13" uuid="d1771270-83c0-4eb7-a3b0-094a84ddfcab"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rechnungsnr.: " + $F{invoiceId} + "/" + $F{creationDate}.format( java.time.format.DateTimeFormatter.ofPattern("yyyy") )]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="56" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<subreport>
+				<reportElement x="0" y="0" width="480" height="10" isRemoveLineWhenBlank="true" uuid="1fd7f904-02cc-465b-a785-766eafdc96f7"/>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_products.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00 ¤;(#,##0.00) ¤">
+				<reportElement key="" positionType="Float" x="375" y="10" width="65" height="13" uuid="ea69c1a3-e250-414a-9db6-b4d10d80a2fb">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turnoverNet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="310" y="10" width="65" height="13" uuid="e43490a0-3d27-426b-9950-9379c8ad6baa">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Netto:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" x="330" y="23" width="110" height="13" isRemoveLineWhenBlank="true" uuid="d0c0cd50-ece4-458d-9259-4f30b7c154e7">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new unipos.report.components.shared.ReturnNullOnExceptionDataSource($F{invoiceItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["sub_taxes.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="300" y="23" width="30" height="13" uuid="a37afe0d-76a3-42ed-9f08-ce818d968666">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[zzgl.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="240" y="36" width="135" height="13" uuid="3b693008-a6fd-46b1-a3c1-396c034624ba">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gesamtbetrag (Brutto):]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00 ¤;(#,##0.00) ¤">
+				<reportElement key="" positionType="Float" x="375" y="36" width="65" height="13" uuid="2c3837af-3ea8-4c13-9493-8ba60c1957cb">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turnoverGross}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="480" height="120" uuid="3eaef042-81e0-4d1f-806d-f5541f384e62"/>
+				<text><![CDATA[Bitte zahlen Sie diese Rechnung innerhalb von 14 Tagen nach Erhalt via Banküberweisung. Vielen Dank! 
+
+Mit freundlichen Grüßen
+
+
+
+
+Gerhard Gradnig
+Inhaber]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="53" splitType="Stretch">
+			<printWhenExpression><![CDATA[true]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="13" uuid="3c4f6759-af23-4423-8499-0eab76686bf8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bankverbindung:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="13" width="100" height="13" uuid="031f1111-8017-49ea-abff-6850505fa6e7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Erste Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="26" width="160" height="13" uuid="8dcaf602-8fec-4114-9612-c6930b7896e9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[IBAN: AT13 2011 1289 2359 0201]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="39" width="160" height="13" uuid="5d73fc90-27e7-4515-b5a4-23aa420bdbcb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[BIC: GIBAATWWXXX]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="320" y="0" width="160" height="13" uuid="01a89f7f-3f42-4736-8dd7-80168cbb30d3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["UID: " + $F{company}.getUid()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="13" width="160" height="13" uuid="930736be-9af6-4b67-a40c-2f126e142b47">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Firmensitz: " + $F{store}.getAddress().getCity()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="26" width="160" height="13" uuid="e9e81b2d-41f6-484d-b700-7a71bc9e06bb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Firmenbuchnr.: " + $F{company}.getCommercialRegisterNumber()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="39" width="190" height="13" uuid="d5b84f9a-82fb-453c-9f4e-2fbb382735ce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Firmenbuchgericht: Handelsgericht Wien"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

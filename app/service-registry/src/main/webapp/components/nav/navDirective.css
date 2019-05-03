@@ -1,0 +1,107 @@
+@font-face {
+    font-family: raleway;
+    src: url(../../assets/font/raleway/Raleway-Regular.ttf) format("truetype");
+}
+
+.custom-nav-bar div.welcome-row {
+    height: 95px;
+    background-color: #95CCFF;
+}
+
+.custom-nav-bar div.menue-row {
+    height: 40px;
+    background-color: #26507F;
+}
+
+.custom-nav-bar .dropdown-menu {
+    opacity: .3;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-transform: scale(1, 0);
+    display: block;
+    transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    width: 100%;
+    font-size: 14pt;
+}
+
+.custom-nav-bar .open > .dropdown-menu {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1;
+    width: 100%;
+}
+
+.custom-nav-bar > div[ng-view] {
+<!-- height: calc(100 % - 83 px);
+-->
+}
+
+body {
+    font-family: raleway !important;
+    background-color: #EEEEEE;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 3px 3px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 0px 0px 3px 3px #ccc; /* Firefox 3.5 - 3.6 */
+    box-shadow: 0px 0px 3px 3px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.navButton {
+    background-color: #26507F;
+    border: 0;
+    font-size: 14pt;
+    height: 40px;
+}
+
+.navButton:hover {
+    background-color: #4CA9FF !important;
+}
+
+.navButton:active {
+    background-color: #4CA9FF !important;
+}
+
+.navButtonSelected {
+    background-color: #0084FF !important;
+}
+
+.flexOne {
+    flex: 1;
+}
+
+.mainCard {
+    flex-flow: column;
+    background-color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: calc(100vh - 155px);
+}
+
+.mainCardHeader {
+    height: 90px;
+}
+
+.mainCardContent {
+    flex: 1;
+}
+
+.mainCardFooter {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.custom-nav-bar .nav-view {
+    height: 100vh;
+}
+.btn-big-div {
+    padding-right: 1%;
+    padding-left: 1%;
+}

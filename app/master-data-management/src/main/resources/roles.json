@@ -1,0 +1,10 @@
+[
+  {
+    "name": "admin",
+    "rights": [
+      "accessAllowed",
+      "showCompanies",
+      "showStores"
+    ]
+  }
+]

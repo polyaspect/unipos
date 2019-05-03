@@ -1,0 +1,86 @@
+<md-dialog aria-label="Directives" class="global-settings">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Globale Einstellungen</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <md-icon md-font-icon="fa-times" class="fa" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content flex="" layout="row">
+        <md-tabs flex="" md-dynamic-height="false" md-border-bottom="" ng-hide="functions">
+            <md-tab label="Style">
+                <md-content class="md-padding" layout="row">
+                    <div flex="25" ng-repeat="directive in directives">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">{{directive.displayText}}</span>
+                                </md-card-title-text>
+                                <md-card-title-media>
+                                    <div class="md-media-lg card-media"></div>
+                                </md-card-title-media>
+                            </md-card-title>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button ng-click="showFunctions(directive)">Auswählen</md-button>
+                            </md-card-actions>
+                        </md-card>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+        <md-tabs flex="" md-dynamic-height="false" md-border-bottom="" ng-hide="!functions" class="functions">
+            <md-tab label="{{function.displayText}}" ng-repeat="(functionName,function) in functions">
+                <md-content class="md-padding" ng-repeat="cssItem in function.data">
+                    <h2>{{cssItem.displayText}}</h2>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="cssItem.data.checked && {'background-color': '#D4CECE'}">
+                            <label>Parent Style</label>
+                            <md-checkbox ng-model="cssItem.data.checked" ng-true-value="false"
+                                         aria-label="Checkbox"
+                                         ng-false-value="true"></md-checkbox>
+                            <textarea ng-model="cssItem.data.parentText" rows="4" disabled></textarea>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="50"
+                                            ng-style="!cssItem.data.checked && {'background-color': '#D4CECE'} ">
+
+                            <label>Custom Style</label>
+                            <md-checkbox ng-model="cssItem.data.checked" ng-true-value="true"
+                                         aria-label="Checkbox"
+                                         ng-false-value="false">
+                            </md-checkbox>
+                        <textarea ng-model="cssItem.data.customText" rows="4"
+                                  ng-disabled="!cssItem.data.checked"></textarea>
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-select ng-model="selectedTheme" aria-label="Theme">
+            <md-option ng-repeat="item in themes" value="{{item}}" ng-click="selectTheme(item)">
+                {{item}}
+            </md-option>
+        </md-select>
+        <md-button ng-click="selectTheme()">
+            Select Theme
+        </md-button>
+        <md-input-container>
+            <label>ThemeName</label>
+            <input ng-model="themeName">
+        </md-input-container>
+        <md-button ng-click="saveAsTheme()">
+            Als Theme Speichern
+        </md-button>
+        <md-button ng-click="hide()">
+            Abbrechen
+        </md-button>
+        <md-button ng-click="save()">
+            Speichern
+        </md-button>
+    </div>
+</md-dialog>

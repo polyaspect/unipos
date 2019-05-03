@@ -1,0 +1,69 @@
+<div class="modal-header text-directive-settings">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Info-Text Einstellungen</h4>
+</div>
+<div class="modal-body text-directive-settings">
+    <uib-tabset class="settings-tabset">
+        <uib-tab index="0" heading="Allgemein" active="activeTab">
+            <br/>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">ID:</label>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" ng-model="model.id">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Statischer Text:</label>
+                            <div class="col-sm-9">
+                                <checkbox ng-model="model.staticText" ng-true-value="true"
+                                          ng-false-value="false">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Text:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="model.text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Modi:</label>
+                            <div class="col-sm-1    0">
+                                <checkbox ng-model="model.staticText" ng-true-value="false"
+                                          ng-false-value="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="list-group">
+                                    <a class="list-group-item layout-row" ng-repeat="item in modes"
+                                       ng-click="selectSourceItem(item, $event)">
+                                        {{item.text}}
+                                        <span class="flex"></span>
+                                        <checkbox ng-model="item.checked" class="checkbox"
+                                                  ng-click="$event.stopPropagation()"></checkbox>
+                                   </a>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Gestaltung">
+            <h2>Gestaltung der Tabelle</h2>
+            <pos.designer.designer-options.style-settings></pos.designer.designer-options.style-settings>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer text-directive-settings layout-row">
+    <span class="flex"></span>
+    <button type="button" class="btn btn-danger flex-10" data-dismiss="modal" ng-click="hide()">Abbrechen</button>
+    <button type="button" class="btn btn-primary flex-10" data-dismiss="modal" ng-click="save()">Speichern</button>
+</div>

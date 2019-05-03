@@ -1,0 +1,11 @@
+body {
+    background-color: #E9EAE7;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.main {
+    background-color: #FFF;
+    min-height: 800px;
+}

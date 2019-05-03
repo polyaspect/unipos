@@ -1,0 +1,82 @@
+<div class="mainCardHeader">
+    <div class="layout-row">
+        <h1>Berichte</h1>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div class="layout-row">
+        <div class="form-group flex-100">
+            <label class="col-md-1 control-label">Filiale:</label>
+            <div class="col-md-11">
+                <ui-select placeholder="Filiale" ng-model="options.store">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="store.guid as store in stores | filter: $select.search">
+                        {{store.name}}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+    <div class="layout-row">
+        <div class="form-group flex-50">
+            <label class="col-md-2 control-label">Von:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="date"
+                       ng-model="options.startDate">
+            </div>
+        </div>
+        <div class="form-group flex-50">
+            <label class="col-md-2 control-label">Bis:</label>
+            <div class="col-md-10">
+                <input class="form-control" type="date"
+                       ng-model="options.endDate">
+            </div>
+        </div>
+    </div>
+    <div class="layout-row">
+        <div class="flex-50 flex-offset-10">
+            <datetimepicker data-ng-model="options.startDate"
+                            data-datetimepicker-config="{ startView:'day', minView:'day' }"
+                            data-before-render="startDateBeforeRender($dates)"
+            ></datetimepicker>
+        </div>
+        <div class="flex-50 flex-offset-10">
+            <datetimepicker data-ng-model="options.endDate"
+                            data-datetimepicker-config="{ startView:'day', minView:'day' }"
+                            data-before-render="endDateBeforeRender($dates)"></datetimepicker>
+        </div>
+    </div>
+    <div class="layout-row" style="margin-top: 50px;">
+        <div class="form-group flex-100">
+            <label class="col-md-1 control-label">Bericht:</label>
+            <div class="col-md-11">
+                <ui-select placeholder="Filiale" ng-model="options.report">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="report in reports | filter: $select.search">
+                        {{report.name}}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layout-column mainCardFooter">
+    <div class="layout-row flex-100">
+        <div class="flex-50 btn-big-div">
+            <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                    ng-click="showReport()">
+                <i class="fa fa-file-text fa-md"></i> Anzeigen
+            </button>
+        </div>
+        <div class="flex-50 btn-big-div">
+            <button type="button" class="btn btn-info btn-lg flex-row-fill"
+                    ng-click="exportReport()">
+                <i class="fa fa-file-pdf-o fa-md"></i> Als PDF exportieren
+            </button>
+        </div>
+    </div>
+</div>

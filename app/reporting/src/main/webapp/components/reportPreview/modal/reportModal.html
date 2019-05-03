@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Bericht anzeigen</h3>
+    <h3 class="modal-title" ng-hide="create">Bericht anzeigen</h3>
+</div>
+<div class="modal-body form-horizontal" ng-bind-html="responseText">
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="close()">
+        Schliesen
+    </button>
+</div>

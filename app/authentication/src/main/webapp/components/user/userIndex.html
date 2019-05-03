@@ -1,0 +1,204 @@
+<div class="mainCardHeader">
+    <div class="layout-row">
+        <div class="flex-100">
+            <h1>Alle Benutzer </h1>
+        </div>
+    </div>
+</div>
+<div class="mainCardContent">
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit
+         ui-grid-cellNav ui-grid-selection class="flex-column-fill">
+    </div>
+</div>
+<div class="mainCardFooter layout-column">
+    <div class="layout-row layout-align-center-center flex-100">
+        <div class="flex-100">
+            <div class="layout-row">
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-primary btn-lg flex-row-fill"
+                            ng-click="showCreateDialog(true)">
+                        <i class="fa fa-plus fa-md"></i> Benutzer erstellen
+                    </button>
+                </div>
+                <div class="flex-50 btn-big-div">
+                    <button type="button" class="btn btn-danger btn-lg flex-row-fill" ng-disabled="buttonDisabled"
+                            ng-click="openSelectedDialog()"><i class="fa fa-pencil fa-md"></i> Benutzer auswählen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div layout="row" id="user-outer-div">
+    <div flex="50">
+        <md-content class="md-padding">
+            <md-card>
+                <md-card-content>
+                    <h2>Alle Benutzer</h2>
+
+                    <div id="user-Table" ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit ui-grid-cellNav
+                         ui-grid-selection/>
+                    <div layout="row">
+                        <md-button class="md-raised md-primary big-button" style="margin-left: 0px;"
+                                   ng-click="showCreateUserDialog(true)">
+                            &lt;!&ndash;ng-click="saveUser($event)">&ndash;&gt;
+                            Benutzer erstellen
+                        </md-button>
+                        &lt;!&ndash;<md-button class="md-raised md-primary big-button" ng-disabled="buttonDisabled"
+                                   ng-click="duplicateSelectedRow()">Benutzer kopieren
+                        </md-button>&ndash;&gt;
+                        <md-button class="md-raised md-primary big-button" ng-disabled="buttonDisabled"
+                                   ng-click="deleteSelectedUser()">Benutzer löschen
+                        </md-button>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+
+    </div>
+    <div flex="50">
+        <md-content class="md-padding">
+            <md-card>
+                <md-card-content>
+                    <div id="infoView">
+                        <h2>
+                            Um einen Benutzer zu erstellen auf den "Benutzer erstellen" Button drücken. <br/>
+                            <br/>
+                            Um einen Benutzer zu bearbeiten den gewollten Benutzer anklicken.
+                        </h2>
+                    </div>
+                    <div id="userEditor" style="display: none;">
+                        <h2>Benutzer erstellen</h2>
+                        <md-button class="md-raised md-primary" ng-click="showUserInfoScreen()">Benutzer-Infos</md-button>
+                        <md-button class="md-raised md-primary" ng-click="showRightsScreen()">Berechtigungen</md-button>
+                        <md-button class="md-raised md-primary" ng-click="showLoginInfoScreen()">Anmeldung</md-button>
+                        <form name="userForm" id="userForm">
+                            <h3>Benutzer Infos</h3>
+                            <div layout layout-sm="column">
+                                <md-input-container>
+                                    <label>Vorname</label>
+                                    <input id="nameInput" ng-model="user.name">
+
+                                    <div class="help-block">Der Vorname des Benutzers.</div>
+                                </md-input-container>
+                            </div>
+                            <div layout layout-sm="column">
+                                <md-input-container>
+                                    <label>Nachname</label>
+                                    <input id="surnameInput" ng-model="user.surname">
+
+                                    <div class="help-block">Der Nachname des Benutzers.</div>
+                                </md-input-container>
+                            </div>
+                            <div layout layout-sm="column">
+                                <md-input-container>
+                                    <md-select placeholder="Unternehmen" ng-model="user.companyGuid">
+                                        <md-option value="{{company.guid}}" ng-repeat="company in companies">
+                                            {{company.name}}
+                                        </md-option>
+                                    </md-select>
+                                    <div class="help-block">Das Unternehmen des Benutzers.</div>
+                                </md-input-container>
+                            </div>
+                            &lt;!&ndash;<md-checkbox ng-model="user.enabled" aria-label="user_aktiviert">
+                                Aktiviert
+                            </md-checkbox>
+                            <div class="help-block">Gibt an ob es dem User erlaubt ist sich anzumelden</div>&ndash;&gt;
+                            <md-button type="submit" class="md-raised md-primary" ng-click="saveUser($event)">
+                                Benutzer speichern
+                            </md-button>
+                        </form>
+                        <form name="rightsForm" id="rightsForm" style="display: none">
+                            <h3>Benutzer Rechte</h3>
+
+                            <div layout layout-sm="column">
+                                <md-input-container>
+                                    <md-select placeholder="Vorlage" ng-model="user.rights">
+                                        <md-option ng-click="changeRoleTemplateTo(role)"  ng-attr-selected="{{role.guid == user.roleGuid || undefined}}" ng-value="{{role.rights}}" ng-repeat="role in roles track by role.guid">
+                                            {{role.name}}
+                                        </md-option>
+                                    </md-select>
+                                    <div class="help-block">Die Rechte des Benutzers als Vorlage. Die genauen Rechte entnehmen Sie mit einem Klick auf Details</div>
+                                </md-input-container>
+                            </div>
+
+                            <md-list>
+                                <md-list-item ng-repeat="right in user.rights track by right.guid">{{right.name}}</md-list-item>
+                            </md-list>
+
+                            <md-button type="submit" class="md-raised md-primary" ng-click="saveUser($event)">
+                                Benutzer speichern
+                            </md-button>
+                        </form>
+                        <form name="loginInfoForm" id="loginInfoForm" style="display: none">
+                            <h3>Benutzer Anmeldung</h3>
+
+                            <div layout layout-sm="column">
+                                <md-input-container>
+                                    <md-select ng-init="loginMethodSelector=1" ng-model="loginMethodSelector" placeholder="Anmeldemethode">
+                                        <md-option ng-repeat="method in ['Benutername+Passwort','Nr+Pin']" value={{method}}>
+                                            {{method}}
+                                        </md-option>
+                                    </md-select>
+                                    <div class="help-block">Wählen Sie eine Anmeldemethode aus</div>
+                                </md-input-container>
+                            </div>
+
+                            <div  ng-switch="loginMethodSelector">
+                                <div ng-switch-when="Benutername+Passwort">
+                                    <md-checkbox ng-model="user.usernamePassword.active" aria-label="aktiviert">
+                                        Aktiviert
+                                    </md-checkbox>
+                                    <div layout layout-sm="column">
+                                        <md-input-container>
+                                            <label>Benutzername</label>
+                                            <input id="nameInput" ng-model="user.usernamePassword.username">
+
+                                            <div class="help-block">Der Benutzername des Mitarbeiters, welcher zum Anmelden am System verwendet wird.</div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout layout-sm="column">
+                                        <md-input-container>
+                                            <label>Passwort</label>
+                                            <input type="password" id="nameInput" ng-model="user.usernamePassword.password">
+
+                                            <div class="help-block">Das Passwort zum Anmelden am System.</div>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div ng-switch-when="Nr+Pin">
+                                    <md-checkbox ng-model="user.mitarbeiterIdPin.active" aria-label="aktiviert">
+                                        Aktiviert
+                                    </md-checkbox>
+                                    <div layout layout-sm="column">
+                                        <md-input-container>
+                                            <label>Mitarbeiter Nummer</label>
+                                            <input id="nameInput" ng-model="user.mitarbeiterIdPin.mitarbeiterid">
+
+                                            <div class="help-block">Die Benutzernummer des Mitarbeiters, welche zum Anmelden am System verwendet wird.</div>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout layout-sm="column">
+                                        <md-input-container>
+                                            <label>PIN</label>
+                                            <input type="password" id="nameInput" ng-model="user.mitarbeiterIdPin.pin">
+
+                                            <div class="help-block">Der PIN zum Anmelden am System.</div>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <md-button type="submit" class="md-raised md-primary" ng-click="saveUser($event)">
+                                Benutzer speichern
+                            </md-button>
+                        </form>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+
+    </div>
+
+</div>-->

@@ -1,0 +1,17 @@
+[
+  {
+    "viewName": "Menü anzeigen",
+    "name": "pos.accessAllowed",
+    "partition": "Kasse"
+  },
+  {
+    "viewName": "Kasse verwenden",
+    "name": "pos.useCashRegister",
+    "partition": "Kasse"
+  },
+  {
+    "viewName": "Designer verwenden",
+    "name": "pos.useDesigner",
+    "partition": "Kasse"
+  }
+]

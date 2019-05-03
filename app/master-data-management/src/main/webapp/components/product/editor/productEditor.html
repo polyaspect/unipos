@@ -1,0 +1,155 @@
+<script type="text/ng-template" id="createCategoryDialog.tpl.html">
+    <div class="modal-header">
+        <h2 class="modal-title">Warengruppe erstellen</h2>
+    </div>
+    <div class="modal-body form-horizontal">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Bezeichnung</label>
+            <div class="col-md-8">
+                <input class="form-control" type="text" ng-model="category.name">
+                <div class="help-block">
+                    Der Name der Warengruppe.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Umsatzsteuer</label>
+            <div class="col-md-8">
+                <ui-select placeholder="Warengruppe" ng-model="category.taxRate"
+                           onclick="setTimeout(function(){document.activeElement.blur();},50);"
+                           skip-focusser="true"
+                           search-enabled="false">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="taxRate in taxRates | filter: $select.search" value="{{taxRate.id}}">
+                        {{taxRate.name}}
+                    </ui-select-choices>
+                </ui-select>
+                <div class="help-block">Die Umsatzsteuerklasse, die angewendet wird.</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="save()" class="btn btn-primary">Erstellen</button>
+    </div>
+</script>
+<div class="modal-header">
+    <h3 class="modal-title" ng-show="create">Artikel erstellen</h3>
+    <h3 class="modal-title" ng-hide="create">Artikel bearbeiten</h3>
+</div>
+<div class="modal-body form-horizontal">
+    <uib-tabset>
+        <uib-tab index="0" heading="Allgemein">
+            <div class="form-group" style="margin-top: 2%">
+                <label class="col-md-2 control-label">Nummer</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number"
+                           ng-model="model.number" ng-init="model.number? '':model.number = defaultProduct.number">
+                    <div class="help-block">Eine eindeutige Artikelnummer um den Artikel zu kennzeichnen.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Bezeichnung</label>
+                <div class="col-md-10">
+                    <input class="form-control" md-maxlength="30" maxlength="30"
+                           ng-model="model.name">
+                    <div class="help-block">
+                        Unter diesem Namen wird der Artikel an der Kasse, auf Rechnungen und in Berichten angezeigt.
+                    </div>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label class="col-md-offset-2 col-md-10">
+                    <input type="checkbox" value="" ng-model="model.customPriceInputAllowed"
+                           aria-label="Manuelle Preiseingabe?">
+                    Manuelle Preiseingabe?
+                    <div class="help-block">Wenn aktiviert, kann der Preis an der Kasse beim Verkauf frei gewählt werden.
+                    </div>
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Preis</label>
+                <div class="col-md-10">
+                    <input type="number" min="0.00" step="0.01" class="form-control"
+                           ng-disabled="product.customPriceInputAllowed" ng-model="model.price">
+                    <div class="help-block">Der Verkaufspreis des Artikels.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Lagerstand:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number" step="1" ng-model="model.stockAmount">
+                    <div class="help-block">Der aktuelle Lagerstand des Artikels.<i> (optional)</i></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Anzeige-Reihenfolge:</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="number" ng-model="model.sortOrder">
+                    <div class="help-block">An dieser Stelle wird der Artikel auf der Kassen-Oberfläche angezeigt.<i> (optional)</i></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Warengruppe:</label>
+                <div class="col-md-10">
+                    <ui-select placeholder="Warengruppe" ng-model="model.category" skip-focusser="true" search-enabled="false"
+                           onclick="setTimeout(function(){document.activeElement.blur();},50);">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="category in categories | filter: $select.search"
+                                           value="{{category.id}}">
+                            {{category.name + " [" + category.taxRate.percentage + "%]" }}
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="help-block">Die Gruppierung des Artikels, welche die USt. festsetzt.</div>
+                    <button class="btn btn-info"
+                            ng-click="showCreateCategoryDialog()">Warengruppe erstellen
+                    </button>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Geltungsbereich">
+            <div style="margin-top: 2%">
+                <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="panel-info gl"
+                         ng-repeat="company in companies">
+                        <uib-accordion-heading>
+                            <checkbox class="btn-info" ng-model="company.checked"
+                                      ng-click="onCompanySelected(company, $event)"></checkbox>
+                            {{company.name}}
+                        </uib-accordion-heading>
+                        <label class="gl-cell gl-md-12" ng-repeat="store in company.stores">
+                            <checkbox class="btn-info" ng-model="store.checked"
+                                      ng-click="onStoreSelected(company, store)"></checkbox>
+                            {{store.name}}
+                        </label>
+                    </div>
+                </uib-accordion>
+            </div>
+        </uib-tab>
+        <uib-tab index="2" heading="Löschen" ng-hide="create">
+            <div style="margin-top: 2%">
+                <div class="alert alert-danger" role="alert">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-1">
+                            <i class="fa fa-trash fa-5x" aria-hidden="true" style="font-size: 7em;"></i>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h3>
+                                Sind Sie sicher, dass Sie den Artikel löschen wollen?
+                            </h3>
+                            <button class="btn btn-danger" ng-click="deleteProduct()">Ja</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="saveProduct()">
+        Artikel speichern
+    </button>
+</div>

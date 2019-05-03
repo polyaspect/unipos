@@ -8,11 +8,11 @@ you have to make your distribution available to anyone under the
 same license. Refer to the **LICENSE** file for details.
 
 ## Prerequisites
-In order to use Open Unipos, make sure to have the following software installed on your machine:
-* Java 8
-* Maven 3
-* Tomcat 8
-* MongoDB
+In order to use Unipos, make sure to have the following software installed on your machine:
+* Java 8+
+* Maven 3+
+* Tomcat 8+
+* MongoDB 3+
 
 ## Build
 To quickly get started, run the following command at the root folder:
